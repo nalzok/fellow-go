@@ -1,0 +1,185 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2017-05-13 22:25+0800\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"Language: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: admin.py:16 admin.py:45
+msgid "Password"
+msgstr "密码"
+
+#: admin.py:17
+msgid "Confirm Password"
+msgstr "确认密码"
+
+#: admin.py:28
+msgid "Passwords don't match"
+msgstr "密码不匹配"
+
+#: admin.py:75 admin.py:85
+msgid "Personal info"
+msgstr "个人信息"
+
+#: admin.py:77 admin.py:87
+msgid "Payment preferences"
+msgstr "支付选项"
+
+#: admin.py:79 admin.py:89
+msgid "Other info"
+msgstr "其他信息"
+
+#: admin.py:91
+msgid "Permissions"
+msgstr "权限"
+
+#: admin.py:109 admin.py:110
+msgid "Fellow Go Background"
+msgstr "同路Go后台"
+
+#: admin.py:111
+msgid "Site Administration"
+msgstr "站点管理"
+
+#: apps.py:7
+msgid "pickup"
+msgstr "代购"
+
+#: models.py:45
+msgid "student ID"
+msgstr "学生号"
+
+#: models.py:51
+msgctxt "override default"
+msgid "first name"
+msgstr "姓"
+
+#: models.py:55
+msgctxt "override default"
+msgid "last name"
+msgstr "名"
+
+#: models.py:59
+msgid "phone"
+msgstr "电话"
+
+#: models.py:65
+msgid "Alipay"
+msgstr "支付宝"
+
+#: models.py:66
+msgid "Wechat"
+msgstr "微信"
+
+#: models.py:67
+msgid "QQ"
+msgstr "QQ"
+
+#: models.py:70
+msgid "method of pay"
+msgstr "支付方式"
+
+#: models.py:75
+msgid "Alipay account"
+msgstr "支付宝账户"
+
+#: models.py:82
+msgid "WeChat ID"
+msgstr "微信号"
+
+#: models.py:89
+msgid "QQ ID"
+msgstr "QQ号"
+
+#: models.py:97
+msgid "nickname"
+msgstr "昵称"
+
+#: models.py:103
+msgctxt "override default"
+msgid "email address"
+msgstr "邮箱"
+
+#: models.py:110
+msgid "balance"
+msgstr "余额"
+
+#: models.py:115
+msgid "is active?"
+msgstr "是否已激活？"
+
+#: models.py:116
+msgid "is admin?"
+msgstr "是否是管理员？"
+
+#: models.py:125 models.py:129
+msgid "fellow"
+msgstr "同路人"
+
+#: models.py:126
+msgid "fellows"
+msgstr "同路人"
+
+#: models.py:162
+msgid "order title"
+msgstr "订单标题"
+
+#: models.py:168
+msgid "order body"
+msgstr "订单内容"
+
+#: models.py:173
+msgid "amount of bounty"
+msgstr "悬赏金额"
+
+#: models.py:180
+msgid "orderer"
+msgstr "下单人"
+
+#: models.py:187
+msgid "address"
+msgstr "地址"
+
+#: models.py:193
+msgid "order taker"
+msgstr "接单人"
+
+#: models.py:201
+msgid "created at"
+msgstr "创建于"
+
+#: models.py:206
+msgid "last modified at"
+msgstr "最后修改于"
+
+#: models.py:211
+msgid "valid before"
+msgstr "有效期限"
+
+#: models.py:215
+msgid "is already taken?"
+msgstr "是否已接单？"
+
+#: models.py:220
+msgid "is already completed?"
+msgstr "是否已完成？"
+
+#: models.py:225 models.py:229
+msgid "order"
+msgstr "订单"
+
+#: models.py:226
+msgid "orders"
+msgstr "订单"
