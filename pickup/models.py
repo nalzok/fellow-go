@@ -1,14 +1,33 @@
-from django.contrib.auth.models import BaseUserManager, AbstractBaseUser
+from django.contrib.auth.models import (
+    BaseUserManager, AbstractBaseUser, PermissionsMixin
+)
 from django.db import models
-from django.utils.translation import ugettext_lazy as _, pgettext_lazy
+from django.utils import timezone
+from django.utils.translation import (
+    ugettext_lazy as _, pgettext_lazy
+)
 
 
 class FellowManager(BaseUserManager):
-
-    def create_user(self, stu_id, first_name, last_name, tel, pay_method, password=None):
+    def create_user(self, stu_id, first_name, last_name, tel, pay_method,
+                    password=None, **extra_fields):
 
         if not stu_id:
             raise ValueError('Users must have a student ID')
+        if not first_name:
+            raise ValueError('Users must have a first name')
+        if not last_name:
+            raise ValueError('Users must have a last name')
+        if not tel:
+            raise ValueError('Users must have a telephone number')
+        if not pay_method:
+            raise ValueError('Users must have a method of pay')
+
+        extra_fields.setdefault('is_staff', False)
+        extra_fields.setdefault('is_superuser', False)
+
+        email = extra_fields.get('email') or (stu_id + '@ecnu.cn')
+        extra_fields['email'] = self.normalize_email(email)
 
         fellow = self.model(
             stu_id=stu_id,
@@ -16,16 +35,15 @@ class FellowManager(BaseUserManager):
             last_name=last_name,
             tel=tel,
             pay_method=pay_method,
+            **extra_fields
         )
-
-        if not fellow.email:
-            fellow.email = fellow.stu_id + '@ecnu.cn'
 
         fellow.set_password(password)
         fellow.save(using=self._db)
         return fellow
 
-    def create_superuser(self, stu_id, first_name, last_name, tel, pay_method, password):
+    def create_superuser(self, stu_id, first_name, last_name, tel, pay_method,
+                         password, **extra_fields):
 
         user = self.create_user(
             stu_id=stu_id,
@@ -34,13 +52,15 @@ class FellowManager(BaseUserManager):
             tel=tel,
             pay_method=pay_method,
             password=password,
+            **extra_fields
         )
-        user.is_admin = True
+        user.is_staff = True
+        user.is_superuser = True
         user.save(using=self._db)
         return user
 
 
-class Fellow(AbstractBaseUser):
+class Fellow(AbstractBaseUser, PermissionsMixin):
 
     stu_id = models.CharField(
         _('student ID'),
@@ -113,8 +133,26 @@ class Fellow(AbstractBaseUser):
         decimal_places=2,
         default=0
     )
-    is_active = models.BooleanField(_('is active?'), default=True)
-    is_admin = models.BooleanField(_('is admin?'), default=False)
+
+    is_staff = models.BooleanField(
+        pgettext_lazy('override default', 'staff status'),
+        default=False,
+        help_text=pgettext_lazy(
+            'override default',
+            'Designates whether the user can log into this admin site.'
+        ),
+    )
+    is_active = models.BooleanField(
+        pgettext_lazy('override default', 'active'),
+        default=True,
+        help_text=pgettext_lazy(
+            'override default',
+            'Designates whether this user should be treated as active. '
+            'Unselect this instead of deleting accounts.'
+        ),
+    )
+
+    date_joined = models.DateTimeField(_('date joined'), default=timezone.now)
 
     objects = FellowManager()
 
@@ -128,22 +166,6 @@ class Fellow(AbstractBaseUser):
 
     def __str__(self):
         return _('fellow') + ' ' + self.stu_id
-
-    def has_perm(self, perm, obj=None):
-        """Does the user have a specific permission?"""
-        # Simplest possible answer: Yes, always
-        return True
-
-    def has_module_perms(self, app_label):
-        """Does the user have permissions to view the app `app_label`?"""
-        # Simplest possible answer: Yes, always
-        return True
-
-    @property
-    def is_staff(self):
-        """Is the user a member of staff?"""
-        # Simplest possible answer: All admins are staff
-        return self.is_admin
 
     def get_full_name(self):
         """

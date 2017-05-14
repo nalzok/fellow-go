@@ -128,5 +128,5 @@ AUTH_USER_MODEL = 'pickup.Fellow'
 
 
 LOCALE_PATHS = (
-    os.path.join(BASE_DIR, "locale"),
+    os.path.join(BASE_DIR, "/locale/"),
 )

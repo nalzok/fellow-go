@@ -18,7 +18,9 @@ class AdminFellowCreationForm(forms.ModelForm):
 
     class Meta:
         model = Fellow
-        fields = ('stu_id', 'first_name', 'last_name', 'tel', 'pay_method', 'nickname', 'email')
+        fields = (
+        'stu_id', 'first_name', 'last_name', 'tel', 'pay_method', 'nickname',
+        'email', 'is_active', 'is_staff', 'is_superuser')
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -46,7 +48,9 @@ class AdminFellowChangeForm(forms.ModelForm):
 
     class Meta:
         model = Fellow
-        fields = ('stu_id', 'first_name', 'last_name', 'tel', 'pay_method', 'nickname', 'email', 'password', 'is_active', 'is_admin')
+        fields = (
+        'stu_id', 'first_name', 'last_name', 'tel', 'pay_method', 'nickname',
+        'email', 'password', 'is_active', 'is_staff', 'is_superuser')
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.
@@ -63,8 +67,9 @@ class FellowAdmin(BaseUserAdmin):
     # The fields to be used in displaying the User model.
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
-    list_display = ('stu_id', 'is_admin')
-    list_filter = ('is_admin',)
+    list_display = (
+    'stu_id', 'first_name', 'last_name', 'is_staff', 'date_joined')
+    list_filter = ('is_staff', 'is_superuser', 'is_active', 'groups')
     # add_fieldsets is not a standard ModelAdmin attribute. FellowAdmin
     # overrides get_fieldsets to use this attribute when creating a user.
     add_fieldsets = (
@@ -78,6 +83,8 @@ class FellowAdmin(BaseUserAdmin):
          {'fields': ('pay_method', 'alipay', 'wechat', 'qq')}),
         (_('Other info'),
          {'fields': ('nickname', 'email')}),
+        (_('Permissions'),
+         {'fields': ('is_active', 'is_staff', 'is_superuser')}),
     )
     fieldsets = (
         (None,
@@ -89,7 +96,7 @@ class FellowAdmin(BaseUserAdmin):
         (_('Other info'),
          {'fields': ('nickname', 'email')}),
         (_('Permissions'),
-         {'fields': ('is_active', 'is_admin',)}),
+         {'fields': ('is_active', 'is_staff', 'is_superuser')}),
     )
     search_fields = ('stu_id', 'first_name', 'last_name')
     ordering = ('stu_id',)
@@ -97,9 +104,6 @@ class FellowAdmin(BaseUserAdmin):
 
 # Now register the new FellowAdmin...
 admin.site.register(Fellow, FellowAdmin)
-# ... and, since we're not using Django's built-in permissions,
-# unregister the Group model from admin.
-admin.site.unregister(Group)
 
 class OrderAdmin(admin.ModelAdmin):
     pass
