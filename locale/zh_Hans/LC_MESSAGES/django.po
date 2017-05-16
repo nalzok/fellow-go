@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-14 23:52+0800\n"
+"POT-Creation-Date: 2017-05-16 14:14+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -16,188 +16,213 @@ msgstr ""
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=1; plural=0;\n"
 
-#: admin.py:16 admin.py:45
+#: pickup/admin.py:15 pickup/admin.py:46
 msgid "Password"
 msgstr "密码"
 
-#: admin.py:17
+#: pickup/admin.py:16
 msgid "Confirm Password"
 msgstr "确认密码"
 
-#: admin.py:28
+#: pickup/admin.py:29
 msgid "Passwords don't match"
 msgstr "密码不匹配"
 
-#: admin.py:75 admin.py:87
+#: pickup/admin.py:79 pickup/admin.py:91
 msgid "Personal info"
 msgstr "个人信息"
 
-#: admin.py:77 admin.py:89
+#: pickup/admin.py:81 pickup/admin.py:93
 msgid "Payment preferences"
 msgstr "支付选项"
 
-#: admin.py:79 admin.py:91
+#: pickup/admin.py:83 pickup/admin.py:95
 msgid "Other info"
 msgstr "其他信息"
 
-#: admin.py:81 admin.py:93
+#: pickup/admin.py:85 pickup/admin.py:97
 msgid "Permissions"
 msgstr "权限"
 
-#: admin.py:108 admin.py:109
+#: pickup/admin.py:112 pickup/admin.py:113
 msgid "Fellow Go Background"
 msgstr "同路Go后台"
 
-#: admin.py:110
+#: pickup/admin.py:114
 msgid "Site Administration"
 msgstr "站点管理"
 
-#: apps.py:7
+#: pickup/apps.py:7
 msgid "pickup"
 msgstr "代购"
 
-#: models.py:65
+#: pickup/models.py:66
 msgid "student ID"
-msgstr "学生号"
+msgstr "学生证号"
 
-#: models.py:71
+#: pickup/models.py:72
 msgctxt "override default"
 msgid "first name"
 msgstr "姓"
 
-#: models.py:75
+#: pickup/models.py:76
 msgctxt "override default"
 msgid "last name"
 msgstr "名"
 
-#: models.py:79
+#: pickup/models.py:80
 msgid "phone"
 msgstr "电话"
 
-#: models.py:85
+#: pickup/models.py:86
 msgid "Alipay"
 msgstr "支付宝"
 
-#: models.py:86
+#: pickup/models.py:87
 msgid "Wechat"
 msgstr "微信"
 
-#: models.py:87
+#: pickup/models.py:88
 msgid "QQ"
 msgstr "QQ"
 
-#: models.py:90
+#: pickup/models.py:91
 msgid "method of pay"
 msgstr "支付方式"
 
-#: models.py:95
+#: pickup/models.py:96
 msgid "Alipay account"
-msgstr "支付宝账户"
+msgstr "支付宝账号"
 
-#: models.py:102
+#: pickup/models.py:103
 msgid "WeChat ID"
 msgstr "微信号"
 
-#: models.py:109
+#: pickup/models.py:110
 msgid "QQ ID"
 msgstr "QQ号"
 
-#: models.py:117
+#: pickup/models.py:118
 msgid "nickname"
 msgstr "昵称"
 
-#: models.py:123
+#: pickup/models.py:124
 msgctxt "override default"
 msgid "email address"
-msgstr "邮箱"
+msgstr "电子邮箱"
 
-#: models.py:130
+#: pickup/models.py:131
 msgid "balance"
 msgstr "余额"
 
-#: models.py:137
+#: pickup/models.py:138
 msgctxt "override default"
 msgid "staff status"
 msgstr "职员状态"
 
-#: models.py:141
+#: pickup/models.py:142
 msgctxt "override default"
 msgid "Designates whether the user can log into this admin site."
-msgstr "指明用户是否能登陆到这个管理站点。"
+msgstr "指明用户能否登陆到管理站点"
 
-#: models.py:145
+#: pickup/models.py:146
 msgctxt "override default"
 msgid "active"
 msgstr "有效"
 
-#: models.py:149
+#: pickup/models.py:150
 msgctxt "override default"
 msgid ""
 "Designates whether this user should be treated as active. Unselect this "
 "instead of deleting accounts."
-msgstr "指明用户是否有效。以反选代替删除帐号。"
+msgstr "指明用户是否有效。以取消勾选代替删除账号。"
 
-#: models.py:154
+#: pickup/models.py:155
 msgid "date joined"
 msgstr "加入日期"
 
-#: models.py:163 models.py:167 tests/test_model.py:20
+#: pickup/models.py:164 pickup/models.py:168 pickup/tests/test_model.py:17
 msgid "fellow"
 msgstr "同路人"
 
-#: models.py:164
+#: pickup/models.py:165
 msgid "fellows"
 msgstr "同路人"
 
-#: models.py:184
+#: pickup/models.py:185
 msgid "order title"
 msgstr "订单标题"
 
-#: models.py:190
+#: pickup/models.py:191
 msgid "order body"
 msgstr "订单内容"
 
-#: models.py:195
+#: pickup/models.py:196
 msgid "amount of bounty"
 msgstr "悬赏金额"
 
-#: models.py:202
+#: pickup/models.py:203
 msgid "orderer"
 msgstr "下单人"
 
-#: models.py:209
+#: pickup/models.py:210
 msgid "address"
 msgstr "地址"
 
-#: models.py:215
+#: pickup/models.py:216
 msgid "order taker"
 msgstr "接单人"
 
-#: models.py:223
+#: pickup/models.py:224
 msgid "created at"
 msgstr "创建于"
 
-#: models.py:228
+#: pickup/models.py:229
 msgid "last modified at"
 msgstr "最后修改于"
 
-#: models.py:233
+#: pickup/models.py:234
 msgid "valid before"
 msgstr "有效期限"
 
-#: models.py:237
+#: pickup/models.py:238
 msgid "is already taken?"
 msgstr "是否已接单？"
 
-#: models.py:242
+#: pickup/models.py:243
 msgid "is already completed?"
 msgstr "是否已完成？"
 
-#: models.py:247 models.py:251 tests/test_model.py:45
+#: pickup/models.py:248 pickup/models.py:252 pickup/tests/test_model.py:42
 msgid "order"
 msgstr "订单"
 
-#: models.py:248
+#: pickup/models.py:249
 msgid "orders"
 msgstr "订单"
+
+#: templates/base.html:15 templates/navbar.html:13
+msgid "Fellow Go"
+msgstr "同路Go"
+
+#: templates/navbar.html:17
+msgid "Home"
+msgstr "主页"
+
+#: templates/navbar.html:18
+msgid "Orders"
+msgstr "订单"
+
+#: templates/navbar.html:36
+msgid "Type keywords here..."
+msgstr "在此输入关键字..."
+
+#: templates/navbar.html:38
+msgid "Search"
+msgstr "搜索"
+
+#: templates/pickup/order_list.html:5 templates/pickup/order_list.html:8
+msgid "Order list"
+msgstr "订单列表"
