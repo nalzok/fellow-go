@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-16 14:14+0800\n"
+"POT-Creation-Date: 2017-05-17 14:21+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -151,78 +151,120 @@ msgstr "同路人"
 msgid "fellows"
 msgstr "同路人"
 
-#: pickup/models.py:185
+#: pickup/models.py:209
 msgid "order title"
 msgstr "订单标题"
 
-#: pickup/models.py:191
+#: pickup/models.py:215
 msgid "order body"
 msgstr "订单内容"
 
-#: pickup/models.py:196
+#: pickup/models.py:220
 msgid "amount of bounty"
 msgstr "悬赏金额"
 
-#: pickup/models.py:203
+#: pickup/models.py:227
 msgid "orderer"
 msgstr "下单人"
 
-#: pickup/models.py:210
+#: pickup/models.py:234
 msgid "address"
 msgstr "地址"
 
-#: pickup/models.py:216
+#: pickup/models.py:240
 msgid "order taker"
 msgstr "接单人"
 
-#: pickup/models.py:224
+#: pickup/models.py:248
 msgid "created at"
 msgstr "创建于"
 
-#: pickup/models.py:229
+#: pickup/models.py:253
 msgid "last modified at"
 msgstr "最后修改于"
 
-#: pickup/models.py:234
+#: pickup/models.py:258
 msgid "valid before"
 msgstr "有效期限"
 
-#: pickup/models.py:238
+#: pickup/models.py:262
 msgid "is already taken?"
 msgstr "是否已接单？"
 
-#: pickup/models.py:243
+#: pickup/models.py:267
 msgid "is already completed?"
 msgstr "是否已完成？"
 
-#: pickup/models.py:248 pickup/models.py:252 pickup/tests/test_model.py:42
+#: pickup/models.py:272 pickup/models.py:276 pickup/tests/test_model.py:42
 msgid "order"
 msgstr "订单"
 
-#: pickup/models.py:249
+#: pickup/models.py:273
 msgid "orders"
 msgstr "订单"
 
-#: templates/base.html:15 templates/navbar.html:13
+#: templates/base.html:15 templates/navbar.html:18
 msgid "Fellow Go"
 msgstr "同路Go"
 
-#: templates/navbar.html:17
+#: templates/index.html:6
+msgid "Home Page"
+msgstr "主页"
+
+#: templates/index.html:11
+msgid "Fellow Go!"
+msgstr "同路Go！"
+
+#: templates/index.html:12
+msgid ""
+"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod "
+"tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, "
+"quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo "
+"consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse "
+"cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat "
+"non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+msgstr ""
+"范例文字，请取代此段落文字。此段落文字为范例文字内容，请务必取代。范例文字，"
+"请取代此段落文字。此段落文字为范例文字内容，请务必取代。范例文字，请取代此段"
+"落文字。此段落文字为范例文字内容，请务必取代。范例文字，请取代此段落文字。此"
+"段落文字为范例文字内容，请务必取代。"
+
+#: templates/index.html:14
+msgid "Register"
+msgstr "注册"
+
+#: templates/index.html:15
+msgid "Log in"
+msgstr "登录"
+
+#: templates/navbar.html:23
 msgid "Home"
 msgstr "主页"
 
-#: templates/navbar.html:18
+#: templates/navbar.html:26
 msgid "Orders"
 msgstr "订单"
 
-#: templates/navbar.html:36
+#: templates/navbar.html:32
+msgid "Dropdown"
+msgstr "下拉菜单"
+
+#: templates/navbar.html:48
 msgid "Type keywords here..."
 msgstr "在此输入关键字..."
 
-#: templates/navbar.html:38
+#: templates/navbar.html:51
 msgid "Search"
 msgstr "搜索"
 
-#: templates/pickup/order_list.html:5 templates/pickup/order_list.html:8
+#: templates/pickup/order_list.html:5 templates/pickup/order_list.html:13
 msgid "Order list"
 msgstr "订单列表"
+
+#: templates/pickup/order_list.html:15
+msgid "Browse and pick orders here."
+msgstr "在此浏览订单与接单。"
+
+#: templates/pickup/order_list.html:19
+msgid "Place Order"
+msgstr "下 单"

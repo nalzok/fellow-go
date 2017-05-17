@@ -45,7 +45,7 @@ class FellowManager(BaseUserManager):
     def create_superuser(self, stu_id, first_name, last_name, tel, pay_method,
                          password, **extra_fields):
 
-        user = self.create_user(
+        fellow = self.create_user(
             stu_id=stu_id,
             first_name=first_name,
             last_name=last_name,
@@ -54,10 +54,10 @@ class FellowManager(BaseUserManager):
             password=password,
             **extra_fields
         )
-        user.is_staff = True
-        user.is_superuser = True
-        user.save(using=self._db)
-        return user
+        fellow.is_staff = True
+        fellow.is_superuser = True
+        fellow.save(using=self._db)
+        return fellow
 
 
 class Fellow(AbstractBaseUser, PermissionsMixin):
@@ -178,6 +178,30 @@ class Fellow(AbstractBaseUser, PermissionsMixin):
         """Return the short name for the user."""
         return self.get_full_name()
 
+    @staticmethod
+    def forge_fellows(count=1):
+
+        from random import seed, choice
+        from uuid import uuid4
+
+        from django.db import IntegrityError
+        import forgery_py
+
+        seed()
+        for i in range(count):
+            try:
+                Fellow.objects.create_user(
+                    stu_id=str(uuid4()),
+                    first_name=forgery_py.name.first_name(),
+                    last_name=forgery_py.name.last_name(),
+                    tel=forgery_py.address.phone(),
+                    pay_method=choice(
+                        ['ALIPAY', 'WECHAT', 'QQ']
+                    ),
+                )
+            except IntegrityError as err:
+                print(str(err))
+
 
 class Order(models.Model):
 
@@ -250,3 +274,32 @@ class Order(models.Model):
 
     def __str__(self):
         return _('order') + ' ' + self.title
+
+    @staticmethod
+    def forge_orders(count=1):
+
+        from random import seed, random, randrange, choice
+
+        from django.db import IntegrityError
+        import forgery_py
+
+        seed()
+        for i in range(count):
+            try:
+                Order.objects.create(
+                    title=forgery_py.lorem_ipsum.title(),
+                    body=forgery_py.lorem_ipsum.sentences(),
+                    bounty_size=max(30 * random() - 20, 0),
+                    maker=Fellow.objects.get(
+                        pk=randrange(1, Fellow.objects.count())
+                    ),
+                    address=forgery_py.address.street_name(),
+                    time_expire=timezone.make_aware(
+                        forgery_py.date.datetime(),
+                        timezone.get_current_timezone()
+                    ),
+                    is_taken=choice([True, False]),
+                    is_completed=choice([True, False]),
+                )
+            except IntegrityError as err:
+                print(str(err))

@@ -5,7 +5,23 @@
 {% block title %}{% trans "Order list" %}{% endblock %}
 
 {% block heading %}
-    <h2>{% trans "Order list" %}</h2>
+    <div class="page-header">
+        <div class="row">
+            <div class="col-xs-12 col-md-1"></div>
+            <div class="col-xs-12 col-md-8">
+                <h1 class="page-title">
+                    {% trans "Order list" %}
+                </h1>
+                <p class="lead page-description">{% trans "Browse and pick orders here." %}</p>
+            </div>
+            <div class="col-xs-12 col-md-2">
+                <button type="button" class="btn btn-primary btn-lg page-btn">
+                    {% trans "Place Order" %}
+                </button>
+            </div>
+            <div class="col-xs-12 col-md-1"></div>
+        </div>
+    </div>
 {% endblock %}
 
 {% block content %}

@@ -1,3 +1,7 @@
+/*
+ * Globals
+ */
+
 body {
     padding-top: 20px;
     padding-bottom: 20px;
@@ -5,4 +9,36 @@ body {
 
 .navbar {
     margin-bottom: 20px;
+}
+
+/*
+ * Page name and description
+ */
+
+.page-header {
+    padding-bottom: 20px;
+}
+
+.page-title {
+    margin-top: 30px;
+    margin-bottom: 0;
+    font-size: 60px;
+    font-weight: normal;
+}
+
+.page-description {
+    font-size: 20px;
+    color: #999;
+}
+
+.page-btn {
+    display: block;
+    margin-top: 40px;
+    width: 100%;
+    font-size: 25px;
+    font-weight: normal;
+}
+
+.page-btn + .page-btn {
+    margin-top: 0.5rem;
 }
