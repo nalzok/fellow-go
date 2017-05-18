@@ -18,12 +18,18 @@ from django.conf.urls import include, url
 from django.conf.urls.i18n import i18n_patterns
 from django.conf.urls.static import static
 from django.contrib import admin
+from django.contrib.auth import views as auth_views
 
 from pickup.views import HomePageView
 
-urlpatterns = i18n_patterns(
+urlpatterns = [
+
+]
+
+urlpatterns += i18n_patterns(
     url(r'^$', HomePageView.as_view(), name='index'),
     url(r'^pickup/', include('pickup.urls')),
+    url(r'^', include('django.contrib.auth.urls')),
     url(r'^admin/', admin.site.urls),
     prefix_default_language=False
 ) + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

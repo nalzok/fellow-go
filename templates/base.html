@@ -1,5 +1,4 @@
-{% load static %}
-{% load i18n %}
+{% load static i18n %}
 
 <!DOCTYPE html>
 <html{% if LANGUAGE_CODE %} lang="{{ LANGUAGE_CODE }}"{% endif %}>
@@ -43,7 +42,27 @@
 
     {% block heading %}{% endblock %}
 
-    {% block content %}{% endblock %}
+    {% block content_without_aside %}{% endblock %}
+
+    {% block content %}
+        <div class="row">
+
+            <article class="col-md-9">
+                {% block main %}{% endblock %}
+            </article>
+
+            {% block sidebar %}
+                <aside class="col-md-3">
+                    {% include 'aside.html' %}
+                </aside>
+            {% endblock %}
+
+        </div>
+    {% endblock %}
+
+    {% block footer %}
+        {% include 'footer.html' %}
+    {% endblock %}
 
 </div> <!-- /container -->
 

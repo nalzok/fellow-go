@@ -6,18 +6,52 @@
     {% trans "Home Page" %}
 {% endblock %}
 
-{% block heading %}
+{% block content_without_aside %}
     <div class="jumbotron">
         <h1>{% trans "Fellow Go!" %}</h1>
-        <p>{% trans "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum." %}</p>
         <p>
-            <a class="btn btn-lg btn-primary" href="#"
-               role="button">{% trans "Register" %} &raquo;</a>
-            <a class="btn btn-lg btn-default" href="#"
-               role="button">{% trans "Log in" %} &raquo;</a>
+            {% blocktrans trimmed %}
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod
+                tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+                minim
+                veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip ex ea
+                commodo consequat. Duis aute irure dolor in reprehenderit in
+                voluptate
+                velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
+                sint
+                occaecat cupidatat non proident, sunt in culpa qui officia
+                deserunt
+                mollit anim id est laborum.
+            {% endblocktrans %}
+        </p>
+        <p>
+            {% if user.is_authenticated %}
+                <div class="row">
+                    <div class="col-xs-6 col-md-4">
+                        <a class="btn btn-lg btn-primary btn-block index-btn"
+                           href="#"
+                           role="button">{% trans "Place an order" %}</a>
+                    </div>
+
+                    <div class="col-md-8 col-md-offset-4"></div>
+
+                    <div class="col-xs-6 col-md-4">
+                        <a class="btn btn-lg btn-primary btn-block index-btn"
+                           href="#"
+                           role="button">{% trans "Pick an order" %}</a>
+                    </div>
+                </div>
+            {% else %}
+                <a class="btn btn-lg btn-primary" href="#"
+                   role="button">{% trans "Register" %} &raquo;</a>
+                <a class="btn btn-lg btn-default" href="{% url 'login' %}"
+                   role="button">{% trans "Log in" %} &raquo;</a>
+            {% endif %}
         </p>
     </div>
 {% endblock %}
 
-{% block content %}
-{% endblock %}
+{# We don't need a sidebar on the homepage #}
+{% block content %}{% endblock %}

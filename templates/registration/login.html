@@ -1,0 +1,59 @@
+{% extends "base.html" %}
+
+{% load i18n crispy_forms_tags %}
+
+{% block title %}{% trans "Log in" %}{% endblock %}
+
+{% block content_without_aside %}
+
+    <div class="row">
+        <div class="col-md-4"></div>
+        <div class="col-md-4">
+            {% if form.errors %}
+                <p>
+                    {% blocktrans trimmed %}
+                        Your username and password didn't match. Please try
+                        again.
+                    {% endblocktrans %}
+                </p>
+            {% endif %}
+
+            {% if next %}
+                {% if user.is_authenticated %}
+                    <p>
+                        {% blocktrans trimmed %}
+                            Your account doesn't have access to this page. To
+                            proceed,
+                            please login with an account that has access.
+                        {% endblocktrans %}
+                    </p>
+                {% else %}
+                    <p>
+                        {% blocktrans trimmed %}
+                            Please login to see this page.
+                        {% endblocktrans %}
+                    </p>
+                {% endif %}
+            {% endif %}
+
+            <form method="post" action="{% url 'login' %}">
+                {% csrf_token %}
+                {{ form|crispy }}
+
+                <input class="btn btn-default" type="submit"
+                       value="{% trans "login" %}"/>
+                <input type="hidden" name="next" value="{{ next }}"/>
+            </form>
+
+            {# Assumes you setup the password_reset view in your URLconf #}
+            <p>
+                <a href="{% url 'password_reset' %}">{% trans "Lost password?" %}</a>
+            </p>
+        </div>
+        <div class="col-md-4"></div>
+    </div>
+
+{% endblock %}
+
+{# We don't need a sidebar on the homepage #}
+{% block content %}{% endblock %}

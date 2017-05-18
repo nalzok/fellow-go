@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-17 14:21+0800\n"
+"POT-Creation-Date: 2017-05-18 17:37+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -203,9 +203,47 @@ msgstr "订单"
 msgid "orders"
 msgstr "订单"
 
-#: templates/base.html:15 templates/navbar.html:18
+#: templates/aside.html:5
+msgid "Site-wide notices"
+msgstr "全站公告"
+
+#: templates/aside.html:7
+msgid "Dapibus ac facilisis in"
+msgstr "范例文字，请取代此段落文字。"
+
+#: templates/aside.html:8
+msgid "Morbi leo risus"
+msgstr "范例文字，请取代此段落文字。"
+
+#: templates/aside.html:9
+msgid "Porta ac consectetur ac"
+msgstr "范例文字，请取代此段落文字。"
+
+#: templates/aside.html:10
+msgid "Vestibulum at eros"
+msgstr "范例文字，请取代此段落文字。"
+
+#: templates/aside.html:18
+msgid "Put your advertisements here"
+msgstr "在这里投放您的广告"
+
+#: templates/aside.html:20
+msgid ""
+"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit "
+"non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies "
+"vehicula ut id elit."
+msgstr ""
+"范例文字，请取代此段落文字。此段落文字为范例文字内容，请务必取代。范例文字，"
+"请取代此段落文字。此段落文字为范例文字内容，请务必取代。范例文字，请取代此段"
+"落文字。"
+
+#: templates/base.html:14 templates/navbar.html:19
 msgid "Fellow Go"
 msgstr "同路Go"
+
+#: templates/footer.html:4
+msgid "The Fellow Go! team"
+msgstr "同路Go！项目组"
 
 #: templates/index.html:6
 msgid "Home Page"
@@ -215,7 +253,7 @@ msgstr "主页"
 msgid "Fellow Go!"
 msgstr "同路Go！"
 
-#: templates/index.html:12
+#: templates/index.html:13
 msgid ""
 "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod "
 "tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, "
@@ -229,42 +267,77 @@ msgstr ""
 "落文字。此段落文字为范例文字内容，请务必取代。范例文字，请取代此段落文字。此"
 "段落文字为范例文字内容，请务必取代。"
 
-#: templates/index.html:14
+#: templates/index.html:28
+msgid "Place an order"
+msgstr "下单"
+
+#: templates/index.html:35
+msgid "Pick an order"
+msgstr "接单"
+
+#: templates/index.html:40
 msgid "Register"
 msgstr "注册"
 
-#: templates/index.html:15
+#: templates/index.html:42 templates/navbar.html:48
+#: templates/registration/login.html:5
 msgid "Log in"
 msgstr "登录"
 
-#: templates/navbar.html:23
+#: templates/navbar.html:24
 msgid "Home"
 msgstr "主页"
 
-#: templates/navbar.html:26
+#: templates/navbar.html:27
 msgid "Orders"
 msgstr "订单"
 
-#: templates/navbar.html:32
-msgid "Dropdown"
-msgstr "下拉菜单"
+#: templates/navbar.html:37
+msgid "Hi, stranger!"
+msgstr "你好，陌生人！"
 
-#: templates/navbar.html:48
-msgid "Type keywords here..."
-msgstr "在此输入关键字..."
+#: templates/navbar.html:44
+msgid "Log out"
+msgstr "注销"
 
-#: templates/navbar.html:51
+#: templates/navbar.html:64
 msgid "Search"
 msgstr "搜索"
 
-#: templates/pickup/order_list.html:5 templates/pickup/order_list.html:13
+#: templates/pickup/order_list.html:6 templates/pickup/order_list.html:16
 msgid "Order list"
 msgstr "订单列表"
 
-#: templates/pickup/order_list.html:15
+#: templates/pickup/order_list.html:18
 msgid "Browse and pick orders here."
-msgstr "在此浏览订单与接单。"
+msgstr "在此浏览订单和接单。"
 
-#: templates/pickup/order_list.html:19
+#: templates/pickup/order_list.html:22
 msgid "Place Order"
-msgstr "下 单"
+msgstr "点此下单"
+
+#: templates/pickup/order_list.html:50
+msgid "There are no orders here..."
+msgstr "这里没有订单……"
+
+#: templates/registration/login.html:14
+msgid "Your username and password didn't match. Please try again."
+msgstr "您的账号与密码不匹配，请再试一遍。"
+
+#: templates/registration/login.html:23
+msgid ""
+"Your account doesn't have access to this page. To proceed, please login with "
+"an account that has access."
+msgstr "您的账号无权访问此页。如欲继续，请使用有权限的账号登录。"
+
+#: templates/registration/login.html:30
+msgid "Please login to see this page."
+msgstr "请登陆以查看此页。"
+
+#: templates/registration/login.html:41
+msgid "login"
+msgstr "登录"
+
+#: templates/registration/login.html:46
+msgid "Lost password?"
+msgstr "忘记密码？"

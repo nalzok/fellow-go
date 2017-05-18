@@ -1,4 +1,4 @@
-from django.http import HttpResponse
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import ugettext as _
 from django.views.generic.base import TemplateView
 from django.views.generic.list import ListView
@@ -8,11 +8,16 @@ from .models import Order
 
 
 class HomePageView(TemplateView):
+
     template_name = 'index.html'
 
 
-class OrderListView(ListView):
-    model = Order
+class OrderListView(LoginRequiredMixin, ListView):
 
-class OrderDetailView(DetailView):
+    model = Order
+    paginate_by = 15
+
+
+class OrderDetailView(LoginRequiredMixin, DetailView):
+
     model = Order

@@ -2,9 +2,12 @@
 
 {% load i18n %}
 
-{% block title %}{% trans "Order list" %}{% endblock %}
+{% block title %}
+    {% trans "Order list" %}
+{% endblock %}
 
 {% block heading %}
+
     <div class="page-header">
         <div class="row">
             <div class="col-xs-12 col-md-1"></div>
@@ -15,29 +18,41 @@
                 <p class="lead page-description">{% trans "Browse and pick orders here." %}</p>
             </div>
             <div class="col-xs-12 col-md-2">
-                <button type="button" class="btn btn-primary btn-lg page-btn">
+                <button type="button"
+                        class="btn btn-primary btn-lg list-page-btn">
                     {% trans "Place Order" %}
                 </button>
             </div>
             <div class="col-xs-12 col-md-1"></div>
         </div>
     </div>
+
 {% endblock %}
 
-{% block content %}
-    <ul class="list-group">
-        {% for order in order_list %}
-            <li class="list-group-item {% if order.is_taken %}list-group-item-success{% endif %}">
-                <h4 class="list-group-item-heading">
-                    {{ order.title|truncatewords:40 }}
-                    {% if order.bounty_size %}
-                        <span class="badge">&yen;{{ order.bounty_size }}</span>
-                    {% endif %}
-                </h4>
-                <p class="list-group-item-text">
-                    {{ order.body|truncatewords:80 }}
-                </p>
-            </li>
-        {% endfor %}
-    </ul>
+{% block main %}
+
+    {% if order_list %}
+        <ul class="list-group">
+            {% for order in order_list %}
+                <li class="list-group-item {% if order.is_taken %}list-group-item-success{% endif %}">
+                    <h4 class="list-group-item-heading">
+                        {{ order.title|truncatewords:40 }}
+                        {% if order.bounty_size %}
+                            <span class="badge">&yen;{{ order.bounty_size }}</span>
+                        {% endif %}
+                    </h4>
+                    <p class="list-group-item-text">
+                        {{ order.body|truncatewords:80 }}
+                    </p>
+                </li>
+            {% endfor %}
+        </ul>
+    {% else %}
+        <h3 class="text-center">{% trans "There are no orders here..." %}</h3>
+    {% endif %}
+
+    {% if is_paginated %}
+        {% include 'pagination.html' %}
+    {% endif %}
+
 {% endblock %}
