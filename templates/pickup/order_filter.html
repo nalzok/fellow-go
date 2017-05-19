@@ -1,10 +1,11 @@
-{% extends 'base.html' %}
+{% extends "base.html" %}
 
-{% load i18n %}
+{% load i18n crispy_forms_tags %}
 
 {% block title %}
     {% trans "Order list" %}
 {% endblock %}
+
 
 {% block heading %}
 
@@ -29,12 +30,17 @@
 
 {% endblock %}
 
+
 {% block main %}
 
-    {% if order_list %}
-        <ul class="list-group">
-            {% for order in order_list %}
-                <li class="list-group-item {% if order.is_taken %}list-group-item-success{% endif %}">
+    {% if filter.qs %}
+        <div class="list-group">
+            {% for order in filter.qs %}
+                <a href="#" class="list-group-item
+                    {% if order.is_available %}
+                        list-group-item-warning
+                    {% endif %}
+                ">
                     <h4 class="list-group-item-heading">
                         {{ order.title|truncatewords:40 }}
                         {% if order.bounty_size %}
@@ -44,9 +50,9 @@
                     <p class="list-group-item-text">
                         {{ order.body|truncatewords:80 }}
                     </p>
-                </li>
+                </a>
             {% endfor %}
-        </ul>
+        </div>
     {% else %}
         <h3 class="text-center">{% trans "There are no orders here..." %}</h3>
     {% endif %}
@@ -54,5 +60,26 @@
     {% if is_paginated %}
         {% include 'pagination.html' %}
     {% endif %}
+
+{% endblock %}
+
+
+{% block sidebar %}
+
+    <aside class="col-md-3">
+
+        {% include 'notice.html' %}
+
+        <form class="sidebar-form" method="get" action="">
+            {% csrf_token %}
+            {{ filter.form|crispy }}
+            <button type="submit" class="btn btn-primary btn-block">
+                {% trans "Search" %}
+            </button>
+        </form>
+
+        {% include 'adv.html' %}
+
+    </aside>
 
 {% endblock %}

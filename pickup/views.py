@@ -1,10 +1,12 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.utils.translation import ugettext as _
 from django.views.generic.base import TemplateView
-from django.views.generic.list import ListView
 from django.views.generic.detail import DetailView
 
+from django_filters.views import FilterView
+
 from .models import Order
+from .filters import OrderFilter
 
 
 class HomePageView(TemplateView):
@@ -12,9 +14,8 @@ class HomePageView(TemplateView):
     template_name = 'index.html'
 
 
-class OrderListView(LoginRequiredMixin, ListView):
-
-    model = Order
+class OrderFilterView(LoginRequiredMixin, FilterView):
+    filterset_class = OrderFilter
     paginate_by = 15
 
 

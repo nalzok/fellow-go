@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-18 17:37+0800\n"
+"POT-Creation-Date: 2017-05-19 21:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -57,6 +57,46 @@ msgstr "站点管理"
 #: pickup/apps.py:7
 msgid "pickup"
 msgstr "代购"
+
+#: pickup/filters.py:15
+msgid "Availability"
+msgstr "是否可接"
+
+#: pickup/filters.py:21
+msgid "Creation time is later than"
+msgstr "创建时间晚于"
+
+#: pickup/filters.py:32
+msgid "Creation time is earlier than"
+msgstr "创建时间早于"
+
+#: pickup/filters.py:42
+msgid "Ordering"
+msgstr "排序方式"
+
+#: pickup/filters.py:45
+msgid "Creation time (ascending)"
+msgstr "创建时间（升序）"
+
+#: pickup/filters.py:46
+msgid "Creation time (descending)"
+msgstr "创建时间（降序）"
+
+#: pickup/filters.py:47
+msgid "Expiration time (ascending)"
+msgstr "截止时间（升序）"
+
+#: pickup/filters.py:48
+msgid "Expiration time (descending)"
+msgstr "截止时间（降序）"
+
+#: pickup/filters.py:49
+msgid "Amount of bounty (ascending)"
+msgstr "悬赏金额（升序）"
+
+#: pickup/filters.py:50
+msgid "Amount of bounty (descending)"
+msgstr "悬赏金额（降序）"
 
 #: pickup/models.py:66
 msgid "student ID"
@@ -189,11 +229,11 @@ msgstr "有效期限"
 
 #: pickup/models.py:262
 msgid "is already taken?"
-msgstr "是否已接单？"
+msgstr "是否已被接单？"
 
 #: pickup/models.py:267
 msgid "is already completed?"
-msgstr "是否已完成？"
+msgstr "是否已被完成？"
 
 #: pickup/models.py:272 pickup/models.py:276 pickup/tests/test_model.py:42
 msgid "order"
@@ -203,31 +243,11 @@ msgstr "订单"
 msgid "orders"
 msgstr "订单"
 
-#: templates/aside.html:5
-msgid "Site-wide notices"
-msgstr "全站公告"
-
-#: templates/aside.html:7
-msgid "Dapibus ac facilisis in"
-msgstr "范例文字，请取代此段落文字。"
-
-#: templates/aside.html:8
-msgid "Morbi leo risus"
-msgstr "范例文字，请取代此段落文字。"
-
-#: templates/aside.html:9
-msgid "Porta ac consectetur ac"
-msgstr "范例文字，请取代此段落文字。"
-
-#: templates/aside.html:10
-msgid "Vestibulum at eros"
-msgstr "范例文字，请取代此段落文字。"
-
-#: templates/aside.html:18
+#: templates/adv.html:8
 msgid "Put your advertisements here"
 msgstr "在这里投放您的广告"
 
-#: templates/aside.html:20
+#: templates/adv.html:10
 msgid ""
 "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit "
 "non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies "
@@ -237,7 +257,7 @@ msgstr ""
 "请取代此段落文字。此段落文字为范例文字内容，请务必取代。范例文字，请取代此段"
 "落文字。"
 
-#: templates/base.html:14 templates/navbar.html:19
+#: templates/base.html:15 templates/navbar.html:19
 msgid "Fellow Go"
 msgstr "同路Go"
 
@@ -267,19 +287,19 @@ msgstr ""
 "落文字。此段落文字为范例文字内容，请务必取代。范例文字，请取代此段落文字。此"
 "段落文字为范例文字内容，请务必取代。"
 
-#: templates/index.html:28
+#: templates/index.html:35
 msgid "Place an order"
 msgstr "下单"
 
-#: templates/index.html:35
+#: templates/index.html:43
 msgid "Pick an order"
 msgstr "接单"
 
-#: templates/index.html:40
+#: templates/index.html:48
 msgid "Register"
 msgstr "注册"
 
-#: templates/index.html:42 templates/navbar.html:48
+#: templates/index.html:50 templates/navbar.html:48
 #: templates/registration/login.html:5
 msgid "Log in"
 msgstr "登录"
@@ -300,44 +320,60 @@ msgstr "你好，陌生人！"
 msgid "Log out"
 msgstr "注销"
 
-#: templates/navbar.html:64
-msgid "Search"
-msgstr "搜索"
+#: templates/navbar.html:68
+msgid "Search for..."
+msgstr "搜索…"
 
-#: templates/pickup/order_list.html:6 templates/pickup/order_list.html:16
+#: templates/notice.html:5
+msgid "Site-wide notices"
+msgstr "全站公告"
+
+#: templates/notice.html:8
+msgid "Dapibus ac facilisis in"
+msgstr "范例文字，请取代此段落文字。"
+
+#: templates/notice.html:9
+msgid "Morbi leo risus"
+msgstr "范例文字，请取代此段落文字。"
+
+#: templates/pickup/order_filter.html:6 templates/pickup/order_filter.html:17
 msgid "Order list"
 msgstr "订单列表"
 
-#: templates/pickup/order_list.html:18
+#: templates/pickup/order_filter.html:19
 msgid "Browse and pick orders here."
 msgstr "在此浏览订单和接单。"
 
-#: templates/pickup/order_list.html:22
+#: templates/pickup/order_filter.html:24
 msgid "Place Order"
 msgstr "点此下单"
 
-#: templates/pickup/order_list.html:50
+#: templates/pickup/order_filter.html:57
 msgid "There are no orders here..."
 msgstr "这里没有订单……"
+
+#: templates/pickup/order_filter.html:77
+msgid "Search"
+msgstr "搜索"
 
 #: templates/registration/login.html:14
 msgid "Your username and password didn't match. Please try again."
 msgstr "您的账号与密码不匹配，请再试一遍。"
 
-#: templates/registration/login.html:23
+#: templates/registration/login.html:24
 msgid ""
 "Your account doesn't have access to this page. To proceed, please login with "
 "an account that has access."
 msgstr "您的账号无权访问此页。如欲继续，请使用有权限的账号登录。"
 
-#: templates/registration/login.html:30
+#: templates/registration/login.html:32
 msgid "Please login to see this page."
 msgstr "请登陆以查看此页。"
 
-#: templates/registration/login.html:41
+#: templates/registration/login.html:44
 msgid "login"
 msgstr "登录"
 
-#: templates/registration/login.html:46
+#: templates/registration/login.html:50
 msgid "Lost password?"
 msgstr "忘记密码？"

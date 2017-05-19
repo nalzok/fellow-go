@@ -275,6 +275,12 @@ class Order(models.Model):
     def __str__(self):
         return _('order') + ' ' + self.title
 
+    def is_expired(self):
+        return self.time_expire < timezone.now()
+
+    def is_available(self):
+        return not self.is_expired() and not self.is_taken
+
     @staticmethod
     def forge_orders(count=1):
 

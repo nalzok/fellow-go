@@ -39,6 +39,8 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'crispy_forms',
+    'datetimewidget',
+    'django_filters',
     'pickup.apps.PickupConfig',
 ]
 
@@ -137,3 +139,5 @@ LOGIN_REDIRECT_URL = 'index'
 LOGOUT_REDIRECT_URL = 'index'
 
 CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+FILTERS_DISABLE_HELP_TEXT = True

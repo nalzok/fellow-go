@@ -83,3 +83,22 @@ body {
 .index-btn + .index-btn {
     margin-top: 0.5rem;
 }
+
+/*
+ * Navbar form
+ */
+
+.navbar-form {
+    padding: 0 0.5em 0;
+}
+
+/*
+ * Sidebar form
+ */
+
+.sidebar-form {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px 15px;
+}
