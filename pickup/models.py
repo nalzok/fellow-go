@@ -67,21 +67,21 @@ class Fellow(AbstractBaseUser, PermissionsMixin):
 
     stu_id = models.CharField(
         _('student ID'),
-        max_length=20,
+        max_length=255,
         unique=True
     )
 
     first_name = models.CharField(
         pgettext_lazy('override default', 'first name'),
-        max_length=30
+        max_length=255
     )
     last_name = models.CharField(
         pgettext_lazy('override default', 'last name'),
-        max_length=150
+        max_length=255
     )
     tel = models.CharField(
         _('phone'),
-        max_length=20,
+        max_length=255,
         unique=True
     )
 
@@ -92,26 +92,26 @@ class Fellow(AbstractBaseUser, PermissionsMixin):
     )
     pay_method = models.CharField(
         _('method of pay'),
-        max_length=30,
+        max_length=255,
         choices=PAY_METHOD_CHOICES
     )
     alipay = models.CharField(
         _('Alipay account'),
-        max_length=150,
+        max_length=255,
         unique=True,
         blank=True,
         null=True
     )
     wechat = models.CharField(
         _('WeChat ID'),
-        max_length=20,
+        max_length=255,
         unique=True,
         blank=True,
         null=True
     )
     qq = models.CharField(
         _('QQ ID'),
-        max_length=20,
+        max_length=255,
         unique=True,
         blank=True,
         null=True
@@ -119,7 +119,7 @@ class Fellow(AbstractBaseUser, PermissionsMixin):
 
     nickname = models.CharField(
         _('nickname'),
-        max_length=150,
+        max_length=255,
         blank=True,
         null=True
     )
@@ -213,7 +213,7 @@ class Order(models.Model):
 
     title = models.CharField(
         _('order title'),
-        max_length=100,
+        max_length=255,
         unique=True
     )
 
@@ -238,7 +238,7 @@ class Order(models.Model):
 
     address = models.CharField(
         _('address'),
-        max_length=200
+        max_length=255
     )
 
     taker = models.ForeignKey(
