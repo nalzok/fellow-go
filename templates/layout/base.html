@@ -47,7 +47,7 @@
 <body>
 <div class="container">
 
-    {% include "navbar.html" %}
+    {% include "layout/navbar.html" %}
 
 </div> <!-- /container -->
 
@@ -55,35 +55,46 @@
 
     {% block heading %}{% endblock %}
 
-    {% block content %}
-        <div class="row">
+    <div class="row">
+        <div class="col-md-10 col-md-offset-1">
 
-            <article class="col-md-9">
-                {% block main %}{% endblock %}
-            </article>
+            {% block content %}
 
-            {% block sidebar %}
-                <aside class="col-md-3">
+                <div class="row">
 
-                    {% block notice %}
-                        {% include "notice.html" %}
+                    <article class="col-md-8">
+                        {% block main %}{% endblock %}
+                    </article>
+
+                    <aside class="col-md-4">
+                        {% block sidebar %}
+
+                            {% block sidebar-main-1 %}{% endblock %}
+
+                            {% block sidebar-notice %}
+                                {% include "layout/sidebar-notice.html" %}
+                            {% endblock %}
+
+                            {% block sidebar-main-2 %}{% endblock %}
+
+                            {% block sidebar-adv %}
+                                {% include 'layout/sidebar-adv.html' %}
+                            {% endblock %}
+
+                            {% block sidebar-main-3 %}{% endblock %}
+
                     {% endblock %}
-
-                    {% block sidebar-main %}
-                    {% endblock %}
-
-                    {% block adv %}
-                        {% include 'adv.html' %}
-                    {% endblock %}
-
                 </aside>
+
+                </div>
+
             {% endblock %}
 
         </div>
-    {% endblock %}
+    </div>
 
     {% block footer %}
-        {% include 'footer.html' %}
+        {% include 'layout/footer.html' %}
     {% endblock %}
 
 </div> <!-- /container -->
@@ -95,5 +106,6 @@
 <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <script src="{% static "js/ie10-viewport-bug-workaround.js" %}"></script>
+<script src="{% static "js/opt-in.js" %}"></script>
 </body>
 </html>

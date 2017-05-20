@@ -6,7 +6,7 @@ from datetimewidget.widgets import DateTimeWidget
 from haystack.forms import SearchForm
 
 
-class AdvancedSearchForm(SearchForm):
+class OrderSearchForm(SearchForm):
     q = forms.CharField(required=False, label=_('Keywords'),
                         widget=forms.TextInput(attrs={'type': 'search'}))
 
@@ -55,22 +55,27 @@ class AdvancedSearchForm(SearchForm):
         ),
         required=False
     )
-    is_taken = forms.NullBooleanField(
+
+    BOOLEAN_OPTIONS = [
+        ('any', _('Any')),
+        (True, _('Yes')),
+        (False, _('No'))
+    ]
+    is_taken = forms.ChoiceField(
         label=_('Order is taken?'),
-        required=False
+        widget=forms.Select(),
+        choices=BOOLEAN_OPTIONS,
+        required=False,
     )
-    is_completed = forms.NullBooleanField(
+    is_completed = forms.ChoiceField(
         label=_('Order is completed?'),
-        required=False
+        widget=forms.Select(),
+        choices=BOOLEAN_OPTIONS,
+        required=False,
     )
-
-    def __index__(self, *args, **kwargs):
-        kwargs['load_all'] = True
-
-        super(SearchForm, self).__init__(*args, **kwargs)
 
     def search(self):
-        sqs = super(AdvancedSearchForm, self).search()
+        sqs = super(OrderSearchForm, self).search()
 
         if not self.is_valid():
             return self.no_query_found()
@@ -91,10 +96,10 @@ class AdvancedSearchForm(SearchForm):
             sqs = sqs.filter(
                 time_expire__lte=self.cleaned_data['time_expire_end'])
 
-        if self.cleaned_data['is_taken']:
+        if self.cleaned_data['is_taken'] != 'any':
             sqs = sqs.filter(is_taken=self.cleaned_data['is_taken'])
 
-        if self.cleaned_data['is_completed']:
-            sqs = sqs.filter(is_completed=self.cleaned_data['is_taken'])
+        if self.cleaned_data['is_completed'] != 'any':
+            sqs = sqs.filter(is_completed=self.cleaned_data['is_completed'])
 
         return sqs

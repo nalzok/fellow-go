@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-20 15:52+0800\n"
+"POT-Creation-Date: 2017-05-21 02:00+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -30,27 +30,27 @@ msgstr "确认密码"
 msgid "Passwords don't match"
 msgstr "密码不匹配"
 
-#: pickup/admin.py:79 pickup/admin.py:91
+#: pickup/admin.py:80 pickup/admin.py:92
 msgid "Personal info"
 msgstr "个人信息"
 
-#: pickup/admin.py:81 pickup/admin.py:93
+#: pickup/admin.py:82 pickup/admin.py:94
 msgid "Payment preferences"
 msgstr "支付选项"
 
-#: pickup/admin.py:83 pickup/admin.py:95
+#: pickup/admin.py:84 pickup/admin.py:96
 msgid "Other info"
 msgstr "其他信息"
 
-#: pickup/admin.py:85 pickup/admin.py:97
+#: pickup/admin.py:86 pickup/admin.py:98
 msgid "Permissions"
 msgstr "权限"
 
-#: pickup/admin.py:112 pickup/admin.py:113
+#: pickup/admin.py:115 pickup/admin.py:116
 msgid "Fellow Go Background"
 msgstr "同路Go后台"
 
-#: pickup/admin.py:114
+#: pickup/admin.py:117
 msgid "Site Administration"
 msgstr "站点管理"
 
@@ -58,240 +58,230 @@ msgstr "站点管理"
 msgid "pickup"
 msgstr "代购"
 
-#: pickup/filters.py:14
+#: pickup/filters.py:17 pickup/forms.py:60
+msgid "Any"
+msgstr "不限"
+
+#: pickup/filters.py:18 pickup/forms.py:61
+msgid "Yes"
+msgstr "是"
+
+#: pickup/filters.py:19 pickup/forms.py:62
+msgid "No"
+msgstr "否"
+
+#: pickup/filters.py:25
 msgid "Availability"
 msgstr "是否可接"
 
-#: pickup/filters.py:20
+#: pickup/filters.py:32
 msgid "Creation time is later than"
 msgstr "创建时间晚于"
 
-#: pickup/filters.py:31
+#: pickup/filters.py:43
 msgid "Creation time is earlier than"
 msgstr "创建时间早于"
 
-#: pickup/filters.py:41
+#: pickup/filters.py:53
 msgid "Ordering"
 msgstr "排序方式"
 
-#: pickup/filters.py:44
+#: pickup/filters.py:56
 msgid "Creation time (ascending)"
 msgstr "创建时间（升序）"
 
-#: pickup/filters.py:45
+#: pickup/filters.py:57
 msgid "Creation time (descending)"
 msgstr "创建时间（降序）"
 
-#: pickup/filters.py:46
+#: pickup/filters.py:58
 msgid "Expiration time (ascending)"
 msgstr "有效期限（升序）"
 
-#: pickup/filters.py:47
+#: pickup/filters.py:59
 msgid "Expiration time (descending)"
 msgstr "有效期限（降序）"
 
-#: pickup/filters.py:48
+#: pickup/filters.py:60
 msgid "Amount of bounty (ascending)"
 msgstr "悬赏金额（升序）"
 
-#: pickup/filters.py:49
+#: pickup/filters.py:61
 msgid "Amount of bounty (descending)"
 msgstr "悬赏金额（降序）"
 
-#: pickup/forms.py:11
+#: pickup/forms.py:10
 msgid "Keywords"
 msgstr "关键词"
 
-#: pickup/forms.py:15
+#: pickup/forms.py:14
 msgid "Creation time is after"
 msgstr "创建时间晚于"
 
-#: pickup/forms.py:26
+#: pickup/forms.py:25
 msgid "Creation time is before"
 msgstr "创建时间早于"
 
-#: pickup/forms.py:38
+#: pickup/forms.py:37
 msgid "Expiration time is after"
 msgstr "有效期限晚于"
 
-#: pickup/forms.py:49
+#: pickup/forms.py:48
 msgid "Expiration time is before"
 msgstr "有效期限早于"
 
-#: pickup/forms.py:60
+#: pickup/forms.py:65
 msgid "Order is taken?"
 msgstr "订单已被接？"
 
-#: pickup/forms.py:64
+#: pickup/forms.py:71
 msgid "Order is completed?"
 msgstr "订单已完成？"
 
-#: pickup/models.py:68
+#: pickup/models.py:69
 msgid "student ID"
 msgstr "学生证号"
 
-#: pickup/models.py:74
+#: pickup/models.py:75
 msgctxt "override default"
 msgid "first name"
 msgstr "姓"
 
-#: pickup/models.py:78
+#: pickup/models.py:79
 msgctxt "override default"
 msgid "last name"
 msgstr "名"
 
-#: pickup/models.py:82
+#: pickup/models.py:83
 msgid "phone"
 msgstr "电话"
 
-#: pickup/models.py:88
+#: pickup/models.py:89
 msgid "Alipay"
 msgstr "支付宝"
 
-#: pickup/models.py:89
+#: pickup/models.py:90
 msgid "Wechat"
 msgstr "微信"
 
-#: pickup/models.py:90
+#: pickup/models.py:91
 msgid "QQ"
 msgstr "QQ"
 
-#: pickup/models.py:93
+#: pickup/models.py:94
 msgid "method of pay"
 msgstr "支付方式"
 
-#: pickup/models.py:98
+#: pickup/models.py:99
 msgid "Alipay account"
 msgstr "支付宝账号"
 
-#: pickup/models.py:105
+#: pickup/models.py:106
 msgid "WeChat ID"
 msgstr "微信号"
 
-#: pickup/models.py:112
+#: pickup/models.py:113
 msgid "QQ ID"
 msgstr "QQ号"
 
-#: pickup/models.py:120
+#: pickup/models.py:121
 msgid "nickname"
 msgstr "昵称"
 
-#: pickup/models.py:126
+#: pickup/models.py:127
 msgctxt "override default"
 msgid "email address"
 msgstr "电子邮箱"
 
-#: pickup/models.py:133
+#: pickup/models.py:134
 msgid "balance"
 msgstr "余额"
 
-#: pickup/models.py:140
+#: pickup/models.py:141
 msgctxt "override default"
 msgid "staff status"
 msgstr "职员状态"
 
-#: pickup/models.py:144
+#: pickup/models.py:145
 msgctxt "override default"
 msgid "Designates whether the user can log into this admin site."
 msgstr "指明用户能否登陆到管理站点"
 
-#: pickup/models.py:148
+#: pickup/models.py:149
 msgctxt "override default"
 msgid "active"
 msgstr "有效"
 
-#: pickup/models.py:152
+#: pickup/models.py:153
 msgctxt "override default"
 msgid ""
 "Designates whether this user should be treated as active. Unselect this "
 "instead of deleting accounts."
 msgstr "指明用户是否有效。以取消勾选代替删除账号。"
 
-#: pickup/models.py:157
+#: pickup/models.py:158
 msgid "date joined"
 msgstr "加入日期"
 
-#: pickup/models.py:166 pickup/models.py:170 pickup/tests/test_model.py:17
+#: pickup/models.py:167 pickup/models.py:171 pickup/tests/test_model.py:17
 msgid "fellow"
 msgstr "同路人"
 
-#: pickup/models.py:167
+#: pickup/models.py:168
 msgid "fellows"
 msgstr "同路人"
 
-#: pickup/models.py:212
+#: pickup/models.py:215
 msgid "order title"
 msgstr "订单标题"
 
-#: pickup/models.py:218
+#: pickup/models.py:221
 msgid "order body"
 msgstr "订单内容"
 
-#: pickup/models.py:223
+#: pickup/models.py:226
 msgid "amount of bounty"
 msgstr "悬赏金额"
 
-#: pickup/models.py:230
+#: pickup/models.py:233
 msgid "orderer"
 msgstr "下单人"
 
-#: pickup/models.py:237
+#: pickup/models.py:240
 msgid "address"
 msgstr "地址"
 
-#: pickup/models.py:243
+#: pickup/models.py:246
 msgid "order taker"
 msgstr "接单人"
 
-#: pickup/models.py:251
+#: pickup/models.py:254
 msgid "created at"
 msgstr "创建于"
 
-#: pickup/models.py:256
+#: pickup/models.py:259
 msgid "last modified at"
 msgstr "最后修改于"
 
-#: pickup/models.py:261
+#: pickup/models.py:264
 msgid "valid before"
 msgstr "有效期限"
 
-#: pickup/models.py:265
+#: pickup/models.py:268
 msgid "is already taken?"
 msgstr "是否已被接？"
 
-#: pickup/models.py:270
+#: pickup/models.py:273
 msgid "is already completed?"
 msgstr "是否已完成？"
 
-#: pickup/models.py:275 pickup/models.py:279 pickup/tests/test_model.py:42
+#: pickup/models.py:278 pickup/models.py:282 pickup/tests/test_model.py:42
 msgid "order"
 msgstr "订单"
 
-#: pickup/models.py:276
+#: pickup/models.py:279
 msgid "orders"
 msgstr "订单"
-
-#: templates/adv.html:8
-msgid "Put your advertisements here"
-msgstr "在这里投放您的广告"
-
-#: templates/adv.html:10
-msgid ""
-"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit "
-"non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies "
-"vehicula ut id elit."
-msgstr ""
-"范例文字，请取代此段落文字。此段落文字为范例文字内容，请务必取代。范例文字，"
-"请取代此段落文字。此段落文字为范例文字内容，请务必取代。范例文字，请取代此段"
-"落文字。"
-
-#: templates/base.html:15 templates/navbar.html:19
-msgid "Fellow Go"
-msgstr "同路Go"
-
-#: templates/footer.html:4
-msgid "The Fellow Go! team"
-msgstr "同路Go！项目组"
 
 #: templates/index.html:6
 msgid "Home Page"
@@ -315,80 +305,145 @@ msgstr ""
 "落文字。此段落文字为范例文字内容，请务必取代。范例文字，请取代此段落文字。此"
 "段落文字为范例文字内容，请务必取代。"
 
-#: templates/index.html:35
+#: templates/index.html:35 templates/pickup/order_detail.html:34
+#: templates/pickup/order_filter.html:22 templates/search/order_search.html:22
+msgid "This functionality has not been implemented...yet!"
+msgstr "这个功能尚未实现……至少现在还没有！"
+
+#: templates/index.html:36
 msgid "Place an order"
 msgstr "下单"
 
-#: templates/index.html:43
-msgid "Pick an order"
-msgstr "接单"
+#: templates/index.html:45
+msgid "View orders"
+msgstr "浏览订单"
 
-#: templates/index.html:48
+#: templates/index.html:50
 msgid "Register"
 msgstr "注册"
 
-#: templates/index.html:50 templates/navbar.html:48
+#: templates/index.html:52 templates/layout/navbar.html:48
 #: templates/registration/login.html:5 templates/registration/login.html:9
 msgid "Log in"
 msgstr "登录"
 
-#: templates/navbar.html:24
+#: templates/layout/base.html:15 templates/layout/navbar.html:19
+msgid "Fellow Go"
+msgstr "同路Go"
+
+#: templates/layout/footer.html:4
+msgid "The Fellow Go! team"
+msgstr "同路Go！项目组"
+
+#: templates/layout/navbar.html:24
 msgid "Home"
 msgstr "主页"
 
-#: templates/navbar.html:27
+#: templates/layout/navbar.html:27
 msgid "Orders"
 msgstr "订单"
 
-#: templates/navbar.html:37
+#: templates/layout/navbar.html:37
 msgid "Hi, stranger!"
 msgstr "你好，陌生人！"
 
-#: templates/navbar.html:44
+#: templates/layout/navbar.html:44
 msgid "Log out"
 msgstr "注销"
 
-#: templates/navbar.html:70
+#: templates/layout/navbar.html:52
+msgid "Advanced Functionality A"
+msgstr "高级功能 A"
+
+#: templates/layout/navbar.html:53
+msgid "Advanced Functionality B"
+msgstr "高级功能 B"
+
+#: templates/layout/navbar.html:67
 msgid "Search for..."
 msgstr "搜索…"
 
-#: templates/notice.html:6
-msgid "Site-wide notices"
-msgstr "全站公告"
-
-#: templates/notice.html:9
-msgid "Dapibus ac facilisis in"
-msgstr "范例文字，请取代此段落文字。"
-
-#: templates/notice.html:10
-msgid "Morbi leo risus"
-msgstr "范例文字，请取代此段落文字。"
-
-#: templates/pagination.html:19 templates/pagination.html:23
+#: templates/layout/pagination.html:19 templates/layout/pagination.html:23
 msgid "Previous"
 msgstr "前一页"
 
-#: templates/pagination.html:42 templates/pagination.html:46
+#: templates/layout/pagination.html:42 templates/layout/pagination.html:46
 msgid "Next"
 msgstr "后一页"
 
-#: templates/pickup/order_filter.html:6 templates/pickup/order_filter.html:17
+#: templates/layout/sidebar-adv.html:8
+msgid "Put your advertisements here"
+msgstr "在这里投放您的广告"
+
+#: templates/layout/sidebar-adv.html:10
+msgid ""
+"Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit "
+"non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies "
+"vehicula ut id elit."
+msgstr ""
+"范例文字，请取代此段落文字。此段落文字为范例文字内容，请务必取代。范例文字，"
+"请取代此段落文字。此段落文字为范例文字内容，请务必取代。范例文字，请取代此段"
+"落文字。"
+
+#: templates/layout/sidebar-notice.html:6
+msgid "Site-wide notices"
+msgstr "全站公告"
+
+#: templates/layout/sidebar-notice.html:13
+msgid "Important notice"
+msgstr "重要通知"
+
+#: templates/layout/sidebar-notice.html:28
+#: templates/layout/sidebar-notice.html:43
+msgid "Normal notice"
+msgstr "一般通知"
+
+#: templates/pickup/order_detail.html:6
+#, python-format
+msgid "View %(object)s"
+msgstr "查看%(object)s"
+
+#: templates/pickup/order_detail.html:20
+msgid "Bounty size"
+msgstr "悬赏金额"
+
+#: templates/pickup/order_detail.html:22
+msgid "Orderer"
+msgstr "下单人"
+
+#: templates/pickup/order_detail.html:24
+msgid "Creation time"
+msgstr "创建时间"
+
+#: templates/pickup/order_detail.html:26
+msgid "Expiration time"
+msgstr "有效期限"
+
+#: templates/pickup/order_detail.html:35
+msgid "Take This Order!"
+msgstr "接单！"
+
+#: templates/pickup/order_detail.html:39
+msgid "Order is taken"
+msgstr "订单已被接"
+
+#: templates/pickup/order_filter.html:6 templates/pickup/order_filter.html:15
 msgid "Order list"
 msgstr "订单列表"
 
-#: templates/pickup/order_filter.html:19
+#: templates/pickup/order_filter.html:17
 msgid "Browse and pick orders here."
 msgstr "在这里浏览订单和接单。"
 
-#: templates/pickup/order_filter.html:24
+#: templates/pickup/order_filter.html:23 templates/search/order_search.html:23
 msgid "Place Order"
 msgstr "点此下单"
 
-#: templates/pickup/order_filter.html:56
+#: templates/pickup/order_filter.html:53
 msgid "There are no orders here..."
 msgstr "这里没有订单……"
 
-#: templates/pickup/order_filter.html:74
+#: templates/pickup/order_filter.html:65
 msgid "Filter"
 msgstr "筛选"
 
@@ -414,23 +469,36 @@ msgstr "登录"
 msgid "Lost password?"
 msgstr "忘记密码？"
 
-#: templates/search/search.html:5
+#: templates/search/order_search.html:6
 msgid "Search results"
 msgstr "搜索结果"
 
-#: templates/search/search.html:9
+#: templates/search/order_search.html:15
+msgid "Search result"
+msgstr "搜索结果"
+
+#: templates/search/order_search.html:17
 msgid "Search for orders"
 msgstr "搜索订单"
 
-#: templates/search/search.html:17
+#: templates/search/order_search.html:37
 msgid "Search"
 msgstr "搜索"
 
-#: templates/search/search.html:22
+#: templates/search/order_search.html:44
 #, python-format
 msgid "%(count)s result(s)"
 msgstr "%(count)s条结果"
 
-#: templates/search/search.html:43
+#: templates/search/order_search.html:63
+#, python-format
+msgid "Placed by user <i>%(placer)s</i> at <i>%(time_created)s</i>"
+msgstr "由用户 <i>%(placer)s</i> 于 <i>%(time_created)s</i> 创建"
+
+#: templates/search/order_search.html:70
 msgid "No results found."
 msgstr "没有找到结果。"
+
+#: templates/search/order_search.html:75
+msgid "<p class=\"lead\">You can search for order title, body, or orderer.</p>"
+msgstr "<p class=\"lead\">您可以搜索订单标题，内容，或者下单人。</p>"

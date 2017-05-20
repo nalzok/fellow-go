@@ -10,10 +10,12 @@ urlpatterns = [
     url(r'^$',
         views.OrderFilterView.as_view(),
         name='order-list'),
-    url(r'^detail/(?P<pk>[0-9])/$',
-        views.OrderFilterView.as_view(),
+    url(r'^detail/(?P<pk>[0-9]+)/$',
+        views.OrderDetailView.as_view(),
         name='order-detail'),
-    url(r'^search/$', search_view_factory(
-        view_class=views.AdvancedSearchView.as_view,
-    ), name='haystack-search')
+    url(r'^search/$',
+        search_view_factory(
+            view_class=views.OrderSearchView.as_view,
+        ),
+        name='haystack-search')
 ]

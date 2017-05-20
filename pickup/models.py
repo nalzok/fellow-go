@@ -11,6 +11,7 @@ from django.utils.translation import (
 
 
 class FellowManager(BaseUserManager):
+
     def create_user(self, stu_id, first_name, last_name, tel, pay_method,
                     password=None, **extra_fields):
 
@@ -286,6 +287,10 @@ class Order(models.Model):
     def is_available(self):
         return not self.is_expired() and not self.is_taken
 
+    def get_absolute_url(self):
+        from django.urls import reverse
+        return reverse('pickup:order-detail', args=[str(self.id)])
+
     @staticmethod
     def forge_orders(count=1):
 
@@ -299,7 +304,7 @@ class Order(models.Model):
             try:
                 Order.objects.create(
                     title=forgery_py.lorem_ipsum.title(),
-                    body=forgery_py.lorem_ipsum.sentences(),
+                    body=forgery_py.lorem_ipsum.sentences(quantity=5),
                     bounty_size=max(30 * random() - 20, 0),
                     maker=Fellow.objects.get(
                         pk=randrange(1, Fellow.objects.count())

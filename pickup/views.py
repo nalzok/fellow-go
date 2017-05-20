@@ -1,15 +1,14 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
-from django.utils.translation import ugettext as _
+from django.utils import timezone
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 
 from django_filters.views import FilterView
-from haystack.query import SearchQuerySet
 from haystack.generic_views import SearchView
 
 from .models import Order
 from .filters import OrderFilter
-from .forms import AdvancedSearchForm
+from .forms import OrderSearchForm
 
 
 class HomePageView(TemplateView):
@@ -18,23 +17,41 @@ class HomePageView(TemplateView):
 
 
 class OrderFilterView(LoginRequiredMixin, FilterView):
+
     filterset_class = OrderFilter
     paginate_by = 15
+
+    def get_context_data(self, *args, **kwargs):
+        # https://djangosnippets.org/snippets/1592/
+        context = super(OrderFilterView, self).get_context_data(*args,
+                                                                **kwargs)
+
+        queries_without_page = self.request.GET.copy()
+        if 'page' in queries_without_page:
+            del queries_without_page['page']
+        context['queries'] = queries_without_page
+
+        return context
 
 
 class OrderDetailView(LoginRequiredMixin, DetailView):
 
     model = Order
 
+    def get_context_data(self, **kwargs):
+        context = super(OrderDetailView, self).get_context_data(**kwargs)
+        context['now'] = timezone.now()
+        return context
 
-class AdvancedSearchView(LoginRequiredMixin, SearchView):
-    template_name = 'search/search.html'
-    form_class = AdvancedSearchForm
+
+class OrderSearchView(LoginRequiredMixin, SearchView):
+    template_name = 'search/order_search.html'
+    form_class = OrderSearchForm
 
     def get_context_data(self, *args, **kwargs):
         # https://djangosnippets.org/snippets/1592/
-        context = super(AdvancedSearchView, self).get_context_data(*args,
-                                                                   **kwargs)
+        context = super(OrderSearchView, self).get_context_data(*args,
+                                                                **kwargs)
 
         queries_without_page = self.request.GET.copy()
         if 'page' in queries_without_page:

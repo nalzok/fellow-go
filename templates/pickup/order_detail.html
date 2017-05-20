@@ -1,0 +1,55 @@
+{% extends "layout/base.html" %}
+
+{% load i18n %}
+
+{% block title %}
+    {% blocktrans trimmed %}
+        View {{ object }}
+    {% endblocktrans %}
+{% endblock %}
+
+{% block heading %}
+
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <h3 class="page-title">
+                    {{ object.title }}
+                </h3>
+                <dl class="dl-horizontal lead page-description">
+                    <dt>{% trans "Bounty size" %}</dt>
+                    <dd>&yen;{{ object.bounty_size }}</dd>
+                    <dt>{% trans "Orderer" %}</dt>
+                    <dd>{{ object.maker.get_full_name }}</dd>
+                    <dt>{% trans "Creation time" %}</dt>
+                    <dd>{{ object.time_created }}</dd>
+                    <dt>{% trans "Expiration time" %}</dt>
+                    <dd>{{ object.time_expire }}</dd>
+                </dl>
+            </div>
+            <div class="col-md-2">
+                {% if not object.is_taken %}
+                    <a role="button" id="list-page-btn-0"
+                       class="btn btn-success btn-lg list-page-btn"
+                       tabindex="0" data-container="body" data-toggle="popover"
+                       data-trigger="focus" data-placement="left"
+                       data-content="{% trans 'This functionality has not been implemented...yet!' %}">
+                        {% trans "Take This Order!" %}
+                    </a>
+                {% else %}
+                    <a role="button" id="list-page-btn-0"
+                       class="btn btn-success btn-lg list-page-btn disabled">
+                        {% trans "Order is taken" %}
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block main %}
+    <p class="lead">{{ object.body }}</p>
+{% endblock %}
+
+{% block sidebar-notice %}{% endblock %}

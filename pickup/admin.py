@@ -67,7 +67,9 @@ class FellowAdmin(BaseUserAdmin):
     # These override the definitions on the base UserAdmin
     # that reference specific fields on auth.User.
     list_display = (
-    'stu_id', 'first_name', 'last_name', 'is_staff', 'date_joined')
+        'stu_id', 'first_name', 'last_name', 'is_staff', 'is_superuser',
+        'date_joined'
+    )
     list_filter = ('is_staff', 'is_superuser', 'is_active', 'groups')
     # add_fieldsets is not a standard ModelAdmin attribute. FellowAdmin
     # overrides get_fieldsets to use this attribute when creating a user.
@@ -106,7 +108,8 @@ admin.site.register(Fellow, FellowAdmin)
 
 class OrderAdmin(admin.ModelAdmin):
     list_display = (
-    'title', 'time_created', 'time_expire', 'is_taken', 'is_completed')
+        'title', 'time_created', 'time_expire', 'is_taken', 'is_completed'
+    )
 
 admin.site.register(Order, OrderAdmin)
 

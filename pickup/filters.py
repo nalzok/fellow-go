@@ -1,3 +1,4 @@
+from django import forms
 from django.db.models import Q
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
@@ -8,9 +9,19 @@ import django_filters
 from .models import Order
 
 
+class CustomBooleanWidget(django_filters.widgets.BooleanWidget):
+    def __init__(self, attrs=None):
+        super(CustomBooleanWidget, self).__init__(attrs)
+        self.choices = (('', _('Any')),
+                        ('true', _('Yes')),
+                        ('false', _('No')))
+
+
+
 class OrderFilter(django_filters.FilterSet):
     availability = django_filters.BooleanFilter(
         label=_('Availability'),
+        widget=CustomBooleanWidget(),
         method='filter_availability'
     )
 

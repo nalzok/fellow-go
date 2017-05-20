@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "layout/base.html" %}
 
 {% load i18n crispy_forms_tags %}
 
@@ -6,48 +6,47 @@
     {% trans "Order list" %}
 {% endblock %}
 
-
 {% block heading %}
 
     <div class="page-header">
         <div class="row">
-            <div class="col-xs-12 col-md-1"></div>
-            <div class="col-xs-12 col-md-8">
+            <div class="col-md-8 col-md-offset-1">
                 <h1 class="page-title">
                     {% trans "Order list" %}
                 </h1>
                 <p class="lead page-description">{% trans "Browse and pick orders here." %}</p>
             </div>
-            <div class="col-xs-12 col-md-2">
-                <button type="button"
-                        class="btn btn-primary btn-lg list-page-btn">
+            <div class="col-md-2">
+                <a role="button" id="list-page-btn-0"
+                   class="btn btn-primary btn-lg list-page-btn"
+                   tabindex="0" data-container="body" data-toggle="popover"
+                   data-trigger="focus" data-placement="left"
+                   data-content="{% trans 'This functionality has not been implemented...yet!' %}">
                     {% trans "Place Order" %}
-                </button>
+                </a>
             </div>
-            <div class="col-xs-12 col-md-1"></div>
         </div>
     </div>
 
 {% endblock %}
-
 
 {% block main %}
 
     {% if object_list %}
         <div class="list-group">
             {% for order in object_list %}
-                <a href="#" class="list-group-item
+                <a href="{{ order.get_absolute_url }}" class="list-group-item
                     {% if order.is_available %}
                         list-group-item-warning
                     {% endif %}">
                     <h4 class="list-group-item-heading">
-                        {{ order.title|truncatewords:40 }}
+                        {{ order.title|truncatewords:20 }}
                         {% if order.bounty_size %}
                             <span class="badge">&yen;{{ order.bounty_size }}</span>
                         {% endif %}
                     </h4>
                     <p class="list-group-item-text">
-                        {{ order.body|truncatewords:80 }}
+                        {{ order.body|truncatewords:40 }}
                     </p>
                 </a>
             {% endfor %}
@@ -56,27 +55,17 @@
         <h3 class="text-center">{% trans "There are no orders here..." %}</h3>
     {% endif %}
 
-    {% include 'pickup/../pagination.html' %}
+    {% include 'layout/pagination.html' %}
 
 {% endblock %}
 
+{% block sidebar-main-2 %}
 
-{% block sidebar %}
-
-    <aside class="col-md-3">
-
-        {% include 'notice.html' %}
-
-        <form class="sidebar-form" method="get" action="">
-            {% csrf_token %}
-            {{ filter.form|crispy }}
-            <button type="submit" class="btn btn-primary btn-block">
-                {% trans "Filter" %}
-            </button>
-        </form>
-
-        {% include 'adv.html' %}
-
-    </aside>
+    <form class="sidebar-form" method="get" action="">
+        {{ filter.form|crispy }}
+        <button type="submit" class="btn btn-primary btn-block">
+            {% trans "Filter" %}
+        </button>
+    </form>
 
 {% endblock %}

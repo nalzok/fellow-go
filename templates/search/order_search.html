@@ -1,0 +1,84 @@
+{% extends 'layout/base.html' %}
+
+{% load i18n crispy_forms_tags highlight %}
+
+{% block title %}
+    {% trans "Search results" %}
+{% endblock %}
+
+{% block heading %}
+
+    <div class="page-header">
+        <div class="row">
+            <div class="col-md-8 col-md-offset-1">
+                <h1 class="page-title">
+                    {% trans "Search result" %}
+                </h1>
+                <p class="lead page-description">{% trans "Search for orders" %}</p>
+            </div>
+            <div class="col-md-2">
+                <a role="button" id="list-page-btn-0"
+                   class="btn btn-primary btn-lg list-page-btn"
+                   tabindex="0" data-container="body" data-toggle="popover"
+                   data-trigger="focus" data-placement="left"
+                   data-content="{% trans 'This functionality has not been implemented...yet!' %}">
+                    {% trans "Place Order" %}
+                </a>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block main %}
+
+    <form method="get" action="">
+        {{ form|crispy }}
+
+        <button type="submit" class="btn btn-primary btn-block search-btn">
+            {% trans "Search" %}
+        </button>
+    </form>
+
+    <hr>
+
+    {% if query %}
+        <h3>{% blocktrans trimmed %}
+            {{ count }} result(s)
+        {% endblocktrans %}
+        </h3>
+
+        {% for result in object_list %}
+            <div>
+                <a href="{{ result.object.get_absolute_url }}">
+                    {% filter truncatewords_html:10 %}
+                        <h4>
+                            {% highlight result.object.title with query html_tag 'mark' %}
+                        </h4>
+                    {% endfilter %}
+                </a>
+                <p>
+                    {% filter truncatewords_html:20 %}
+                        {% highlight result.object.body with query html_tag 'mark' %}
+                    {% endfilter %}
+                <p class="text-right">
+                    {% blocktrans trimmed with placer=result.object.maker.get_full_name time_created=result.object.time_created %}
+                        Placed by user <i>{{ placer }}</i> at
+                        <i>{{ time_created }}</i>
+                    {% endblocktrans %}
+                </p>
+                </p>
+            </div>
+        {% empty %}
+            <p>{% trans "No results found." %}</p>
+        {% endfor %}
+
+        {% include 'layout/pagination.html' %}
+    {% else %}
+        {% blocktrans trimmed %}
+            <p class="lead">You can search for order title, body, or
+                orderer.</p>
+        {% endblocktrans %}
+    {% endif %}
+
+{% endblock %}
