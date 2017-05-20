@@ -1,3 +1,5 @@
+import re
+
 from django.contrib.auth.models import (
     BaseUserManager, AbstractBaseUser, PermissionsMixin
 )
@@ -171,7 +173,10 @@ class Fellow(AbstractBaseUser, PermissionsMixin):
         """
         Return the first_name plus the last_name, with a space in between.
         """
-        full_name = '%s %s' % (self.first_name, self.last_name)
+        contains_chinese = re.findall(r'[\u4e00-\u9fff]+',
+                                      self.first_name + self.last_name)
+        full_name = ('%s%s' if contains_chinese else '%s %s') % (
+        self.first_name, self.last_name)
         return full_name.strip()
 
     def get_short_name(self):
@@ -276,7 +281,7 @@ class Order(models.Model):
         return _('order') + ' ' + self.title
 
     def is_expired(self):
-        return self.time_expire < timezone.now()
+        return self.time_expire <= timezone.now()
 
     def is_available(self):
         return not self.is_expired() and not self.is_taken

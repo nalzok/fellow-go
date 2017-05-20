@@ -6,7 +6,7 @@
     {% trans "Home Page" %}
 {% endblock %}
 
-{% block content_without_aside %}
+{% block content %}
     <div class="jumbotron">
         <h1>{% trans "Fellow Go!" %}</h1>
         <p>
@@ -52,6 +52,3 @@
         </p>
     </div>
 {% endblock %}
-
-{# We don't need a sidebar on the homepage #}
-{% block content %}{% endblock %}

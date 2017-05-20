@@ -105,7 +105,8 @@ class FellowAdmin(BaseUserAdmin):
 admin.site.register(Fellow, FellowAdmin)
 
 class OrderAdmin(admin.ModelAdmin):
-    pass
+    list_display = (
+    'title', 'time_created', 'time_expire', 'is_taken', 'is_completed')
 
 admin.site.register(Order, OrderAdmin)
 

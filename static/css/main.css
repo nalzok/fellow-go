@@ -102,3 +102,23 @@ body {
     border-radius: 4px;
     padding: 10px 15px;
 }
+
+/*
+ * Search field
+ */
+
+.form-group#div_id_time_created_start,
+.form-group#div_id_time_expire_start {
+    display: inline-block;
+    max-width: 50%;
+    padding-right: 10px;
+    margin: 0 -1px 15px;
+}
+
+.form-group#div_id_time_created_end,
+.form-group#div_id_time_expire_end {
+    display: inline-block;
+    max-width: 50%;
+    padding-left: 10px;
+    margin: 0 -1px 15px;
+}

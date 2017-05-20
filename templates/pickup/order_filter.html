@@ -33,14 +33,13 @@
 
 {% block main %}
 
-    {% if filter.qs %}
+    {% if object_list %}
         <div class="list-group">
-            {% for order in filter.qs %}
+            {% for order in object_list %}
                 <a href="#" class="list-group-item
                     {% if order.is_available %}
                         list-group-item-warning
-                    {% endif %}
-                ">
+                    {% endif %}">
                     <h4 class="list-group-item-heading">
                         {{ order.title|truncatewords:40 }}
                         {% if order.bounty_size %}
@@ -57,9 +56,7 @@
         <h3 class="text-center">{% trans "There are no orders here..." %}</h3>
     {% endif %}
 
-    {% if is_paginated %}
-        {% include 'pagination.html' %}
-    {% endif %}
+    {% include 'pickup/../pagination.html' %}
 
 {% endblock %}
 
@@ -74,7 +71,7 @@
             {% csrf_token %}
             {{ filter.form|crispy }}
             <button type="submit" class="btn btn-primary btn-block">
-                {% trans "Search" %}
+                {% trans "Filter" %}
             </button>
         </form>
 

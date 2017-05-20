@@ -1,0 +1,17 @@
+{{ object.title }}
+{{ object.body }}
+{{ object.address }}
+
+{% if object.maker %}
+{{ object.maker.stu_id }}
+{{ object.maker.get_full_name }}
+{{ object.maker.tel }}
+{{ object.maker.nickname }}
+{% endif %}
+
+{% if object.taker %}
+{{ object.taker.stu_id }}
+{{ object.taker.get_full_name }}
+{{ object.taker.tel }}
+{{ object.taker.nickname }}
+{% endif %}
