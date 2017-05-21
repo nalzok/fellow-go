@@ -3,7 +3,7 @@ Django==1.11.1
 django-crispy-forms==1.6.1
 django-datetime-widget==0.9.3
 django-filter==1.0.3
-django-haystack==2.6.1
+git+git://github.com/django-haystack/django-haystack.git
 ForgeryPy3==0.3.1
 gunicorn==19.7.1
 psycopg2==2.7.1

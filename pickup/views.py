@@ -1,5 +1,9 @@
+from crispy_forms.bootstrap import InlineField
+from crispy_forms.layout import Layout, Submit
 from django.contrib.auth.mixins import LoginRequiredMixin
+from django.core.urlresolvers import reverse
 from django.utils import timezone
+from django.utils.translation import ugettext_lazy as _
 from django.views.generic.base import TemplateView
 from django.views.generic.detail import DetailView
 
@@ -61,3 +65,17 @@ class OrderSearchView(LoginRequiredMixin, SearchView):
         context['count'] = self.get_queryset().count()
 
         return context
+
+
+def common_request_parameters(request):
+    form = OrderSearchForm()
+    form.helper.form_class = 'navbar-form navbar-right'
+    form.helper.form_method = 'get'
+    form.helper.form_action = reverse('pickup:haystack-search')
+    form.helper.layout = Layout(
+        InlineField('q')
+    )
+
+    return {
+        'nav_search_form': form
+    }

@@ -2,12 +2,13 @@ from django import forms
 from django.utils import timezone
 from django.utils.translation import ugettext_lazy as _
 
+from crispy_forms.helper import FormHelper
 from datetimewidget.widgets import DateTimeWidget
 from haystack.forms import SearchForm
 
 
 class OrderSearchForm(SearchForm):
-    q = forms.CharField(required=False, label=_('Keywords'),
+    q = forms.CharField(required=False, label=_('Search keywords'),
                         widget=forms.TextInput(attrs={'type': 'search'}))
 
     time_created_start = forms.DateTimeField(
@@ -58,8 +59,8 @@ class OrderSearchForm(SearchForm):
 
     BOOLEAN_OPTIONS = [
         ('any', _('Any')),
-        (True, _('Yes')),
-        (False, _('No'))
+        ('True', _('Yes')),
+        ('False', _('No'))
     ]
     is_taken = forms.ChoiceField(
         label=_('Order is taken?'),
@@ -73,6 +74,10 @@ class OrderSearchForm(SearchForm):
         choices=BOOLEAN_OPTIONS,
         required=False,
     )
+
+    def __init__(self, *args, **kwargs):
+        super(OrderSearchForm, self).__init__(*args, **kwargs)
+        self.helper = FormHelper()
 
     def search(self):
         sqs = super(OrderSearchForm, self).search()
@@ -96,10 +101,10 @@ class OrderSearchForm(SearchForm):
             sqs = sqs.filter(
                 time_expire__lte=self.cleaned_data['time_expire_end'])
 
-        if self.cleaned_data['is_taken'] != 'any':
+        if self.cleaned_data['is_taken'] in ['True', 'False']:
             sqs = sqs.filter(is_taken=self.cleaned_data['is_taken'])
 
-        if self.cleaned_data['is_completed'] != 'any':
+        if self.cleaned_data['is_completed'] in ['True', 'False']:
             sqs = sqs.filter(is_completed=self.cleaned_data['is_completed'])
 
         return sqs
