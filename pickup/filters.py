@@ -25,13 +25,20 @@ class OrderFilter(django_filters.FilterSet):
         method='filter_availability'
     )
 
+    date_time_options = {
+        'todayBtn': 'true',
+        'clearBtn': 'false',
+        'pickerPosition': 'bottom-left',
+    }
+
     time_created__gt = django_filters.DateTimeFilter(
         name='time_created',
         label=_('Creation time is later than'),
         widget=DateTimeWidget(
             attrs={'id': 'id_time_created_0'},
             usel10n=True,
-            bootstrap_version=3
+            bootstrap_version=3,
+            options=date_time_options,
         ),
         lookup_expr='gt'
     )
@@ -42,7 +49,8 @@ class OrderFilter(django_filters.FilterSet):
         widget=DateTimeWidget(
             attrs={'id': 'id_time_created_1'},
             usel10n=True,
-            bootstrap_version=3
+            bootstrap_version=3,
+            options=date_time_options,
         ),
         lookup_expr='lt'
     )

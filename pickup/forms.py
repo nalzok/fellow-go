@@ -11,7 +11,10 @@ class OrderSearchForm(SearchForm):
     q = forms.CharField(required=False, label=_('Search keywords'),
                         widget=forms.TextInput(attrs={'type': 'search'}))
 
-    # Temporarily disabled these fields, since they don't work with SimpleEngine
+    date_time_options = {
+        'clearBtn': 'false',
+        'pickerPosition': 'bottom-left',
+    }
 
     time_created_start = forms.DateTimeField(
         label=_('Creation time is after'),
@@ -20,10 +23,10 @@ class OrderSearchForm(SearchForm):
                 'id': 'id_time_created_0',
             },
             usel10n=True,
-            bootstrap_version=3
+            bootstrap_version=3,
+            options=date_time_options,
         ),
         required=False,
-        disabled=True
     )
     time_created_end = forms.DateTimeField(
         label=_('Creation time is before'),
@@ -32,10 +35,10 @@ class OrderSearchForm(SearchForm):
                 'id': 'id_time_created_1',
             },
             usel10n=True,
-            bootstrap_version=3
+            bootstrap_version=3,
+            options=date_time_options,
         ),
         required=False,
-        disabled=True
     )
 
     time_expire_start = forms.DateTimeField(
@@ -45,10 +48,10 @@ class OrderSearchForm(SearchForm):
                 'id': 'id_time_expire_0',
             },
             usel10n=True,
-            bootstrap_version=3
+            bootstrap_version=3,
+            options=date_time_options,
         ),
         required=False,
-        disabled=True
     )
     time_expire_end = forms.DateTimeField(
         label=_('Expiration time is before'),
@@ -57,10 +60,10 @@ class OrderSearchForm(SearchForm):
                 'id': 'id_time_expire_1',
             },
             usel10n=True,
-            bootstrap_version=3
+            bootstrap_version=3,
+            options=date_time_options,
         ),
         required=False,
-        disabled=True
     )
 
     BOOLEAN_OPTIONS = [
