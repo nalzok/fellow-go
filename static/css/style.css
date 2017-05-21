@@ -18,6 +18,10 @@ body {
     border-top: 1px solid #eee;
 }
 
+article.main {
+    margin-bottom: 75px;
+}
+
 /*
  * Index page
  */

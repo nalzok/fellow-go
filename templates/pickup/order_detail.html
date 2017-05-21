@@ -12,7 +12,7 @@
 
     <div class="page-header">
         <div class="row">
-            <div class="col-md-8 col-md-offset-1">
+            <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-1">
                 <h3 class="page-title">
                     {{ object.title }}
                 </h3>
@@ -27,7 +27,7 @@
                     <dd>{{ object.time_expire }}</dd>
                 </dl>
             </div>
-            <div class="col-md-2">
+            <div class="col-xs-10 col-xs-offset-1 col-md-2 col-md-offset-0">
                 {% if not object.is_taken %}
                     <a role="button" id="list-page-btn-0"
                        class="btn btn-success btn-lg list-page-btn"
@@ -49,7 +49,11 @@
 {% endblock %}
 
 {% block main %}
-    <p class="lead">{{ object.body }}</p>
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
+            <p class="lead">{{ object.body }}</p>
+        </div>
+    </div>
 {% endblock %}
 
 {% block sidebar-notice %}{% endblock %}

@@ -34,7 +34,7 @@
                            class="btn btn-primary btn-lg index-btn"
                            tabindex="0" data-container="body"
                            data-toggle="popover" data-trigger="focus"
-                           data-placement="right"
+                           data-placement="top"
                            data-content="{% trans 'This functionality has not been implemented...yet!' %}">
                             {% trans "Place an order" %}
                         </a>
@@ -49,10 +49,17 @@
                     </div>
                 </div>
             {% else %}
-                <a class="btn btn-lg btn-primary" href="#"
-                   role="button">{% trans "Register" %} &raquo;</a>
+                <a role="button" id="list-page-btn-0"
+                   class="btn btn-lg btn-primary"
+                   tabindex="0" data-container="body" data-toggle="popover"
+                   data-trigger="focus" data-placement="top"
+                   data-content="{% trans 'This functionality has not been implemented...yet!' %}">
+                   {% trans "Register" %} &raquo;
+                </a>
                 <a class="btn btn-lg btn-default" href="{% url 'login' %}"
-                   role="button">{% trans "Log in" %} &raquo;</a>
+                   role="button">
+                    {% trans "Log in" %} &raquo;
+                </a>
             {% endif %}
         </p>
     </div>

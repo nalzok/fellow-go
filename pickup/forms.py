@@ -11,6 +11,8 @@ class OrderSearchForm(SearchForm):
     q = forms.CharField(required=False, label=_('Search keywords'),
                         widget=forms.TextInput(attrs={'type': 'search'}))
 
+    # Temporarily disabled these fields, since they don't work with SimpleEngine
+
     time_created_start = forms.DateTimeField(
         label=_('Creation time is after'),
         widget=DateTimeWidget(
@@ -20,7 +22,8 @@ class OrderSearchForm(SearchForm):
             usel10n=True,
             bootstrap_version=3
         ),
-        required=False
+        required=False,
+        disabled=True
     )
     time_created_end = forms.DateTimeField(
         label=_('Creation time is before'),
@@ -31,7 +34,8 @@ class OrderSearchForm(SearchForm):
             usel10n=True,
             bootstrap_version=3
         ),
-        required=False
+        required=False,
+        disabled=True
     )
 
     time_expire_start = forms.DateTimeField(
@@ -43,7 +47,8 @@ class OrderSearchForm(SearchForm):
             usel10n=True,
             bootstrap_version=3
         ),
-        required=False
+        required=False,
+        disabled=True
     )
     time_expire_end = forms.DateTimeField(
         label=_('Expiration time is before'),
@@ -54,7 +59,8 @@ class OrderSearchForm(SearchForm):
             usel10n=True,
             bootstrap_version=3
         ),
-        required=False
+        required=False,
+        disabled=True
     )
 
     BOOLEAN_OPTIONS = [
@@ -67,12 +73,14 @@ class OrderSearchForm(SearchForm):
         widget=forms.Select(),
         choices=BOOLEAN_OPTIONS,
         required=False,
+        disabled=True
     )
     is_completed = forms.ChoiceField(
         label=_('Order is completed?'),
         widget=forms.Select(),
         choices=BOOLEAN_OPTIONS,
         required=False,
+        disabled=True
     )
 
     def __init__(self, *args, **kwargs):

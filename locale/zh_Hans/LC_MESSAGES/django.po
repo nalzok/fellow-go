@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2017-05-21 12:52+0800\n"
+"POT-Creation-Date: 2017-05-21 14:57+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -58,15 +58,15 @@ msgstr "站点管理"
 msgid "pickup"
 msgstr "代购"
 
-#: pickup/filters.py:15 pickup/forms.py:61
+#: pickup/filters.py:15 pickup/forms.py:67
 msgid "Any"
 msgstr "不限"
 
-#: pickup/filters.py:16 pickup/forms.py:62
+#: pickup/filters.py:16 pickup/forms.py:68
 msgid "Yes"
 msgstr "是"
 
-#: pickup/filters.py:17 pickup/forms.py:63
+#: pickup/filters.py:17 pickup/forms.py:69
 msgid "No"
 msgstr "否"
 
@@ -112,29 +112,29 @@ msgstr "悬赏金额（降序）"
 
 #: pickup/forms.py:11
 msgid "Search keywords"
-msgstr "搜索关键词"
+msgstr "搜索关键字"
 
-#: pickup/forms.py:15
+#: pickup/forms.py:17
 msgid "Creation time is after"
 msgstr "创建时间晚于"
 
-#: pickup/forms.py:26
+#: pickup/forms.py:29
 msgid "Creation time is before"
 msgstr "创建时间早于"
 
-#: pickup/forms.py:38
+#: pickup/forms.py:42
 msgid "Expiration time is after"
 msgstr "有效期限晚于"
 
-#: pickup/forms.py:49
+#: pickup/forms.py:54
 msgid "Expiration time is before"
 msgstr "有效期限早于"
 
-#: pickup/forms.py:66
+#: pickup/forms.py:72
 msgid "Order is taken?"
 msgstr "订单已被接？"
 
-#: pickup/forms.py:72
+#: pickup/forms.py:79
 msgid "Order is completed?"
 msgstr "订单已完成？"
 
@@ -305,10 +305,11 @@ msgstr ""
 "落文字。此段落文字为范例文字内容，请务必取代。范例文字，请取代此段落文字。此"
 "段落文字为范例文字内容，请务必取代。"
 
-#: templates/index.html:38 templates/pickup/order_detail.html:36
-#: templates/pickup/order_filter.html:24 templates/search/order_search.html:24
+#: templates/index.html:38 templates/index.html:56
+#: templates/pickup/order_detail.html:36 templates/pickup/order_filter.html:24
+#: templates/search/order_search.html:24
 msgid "This functionality has not been implemented...yet!"
-msgstr "这个功能尚未实现……至少暂时没有！"
+msgstr "这个功能我们目前还没有实现！"
 
 #: templates/index.html:39
 msgid "Place an order"
@@ -318,11 +319,11 @@ msgstr "下单"
 msgid "View orders"
 msgstr "浏览订单"
 
-#: templates/index.html:53
+#: templates/index.html:57
 msgid "Register"
 msgstr "注册"
 
-#: templates/index.html:55 templates/layout/navbar.html:48
+#: templates/index.html:61 templates/layout/navbar.html:48
 #: templates/registration/login.html:5 templates/registration/login.html:9
 msgid "Log in"
 msgstr "登录"
@@ -359,10 +360,6 @@ msgstr "高级功能 A"
 msgid "Advanced Functionality B"
 msgstr "高级功能 B"
 
-#: templates/layout/navbar.html:61
-msgid "Search for..."
-msgstr "搜索…"
-
 #: templates/layout/pagination.html:19 templates/layout/pagination.html:23
 msgid "Previous"
 msgstr "前一页"
@@ -376,11 +373,11 @@ msgstr "第%(current)s／%(total)s页"
 msgid "Next"
 msgstr "后一页"
 
-#: templates/layout/sidebar-adv.html:8
+#: templates/layout/sidebar_adv.html:8
 msgid "Put your advertisements here"
 msgstr "在这里投放您的广告"
 
-#: templates/layout/sidebar-adv.html:10
+#: templates/layout/sidebar_adv.html:10
 msgid ""
 "Cras justo odio, dapibus ac facilisis in, egestas eget quam. Donec id elit "
 "non mi porta gravida at eget metus. Nullam id dolor id nibh ultricies "
@@ -390,16 +387,38 @@ msgstr ""
 "请取代此段落文字。此段落文字为范例文字内容，请务必取代。范例文字，请取代此段"
 "落文字。"
 
-#: templates/layout/sidebar-notice.html:6
+#: templates/layout/sidebar_notice.html:6
 msgid "Site-wide notices"
 msgstr "全站公告"
 
-#: templates/layout/sidebar-notice.html:16
+#: templates/layout/sidebar_notice.html:16
 msgid "Important notice"
 msgstr "重要通知"
 
-#: templates/layout/sidebar-notice.html:44
-#: templates/layout/sidebar-notice.html:72
+#: templates/layout/sidebar_notice.html:23
+#: templates/layout/sidebar_notice.html:53
+#: templates/layout/sidebar_notice.html:83
+msgid ""
+"Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry "
+"richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard "
+"dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon "
+"tempor, sunt aliqua put a bird on it squid single-origin coffee nulla "
+"assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore "
+"wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher "
+"vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic "
+"synth nesciunt you probably haven't heard of them accusamus labore "
+"sustainable VHS."
+msgstr ""
+"范例文字，请取代此段落文字。此段落文字为范例文字内容，请务必取代。范例文字，"
+"请取代此段落文字。此段落文字为范例文字内容，请务必取代。范例文字，请取代此段"
+"落文字。此段落文字为范例文字内容，请务必取代。范例文字，请取代此段落文字。此"
+"段落文字为范例文字内容，请务必取代。范例文字，请取代此段落文字。此段落文字为"
+"范例文字内容，请务必取代。范例文字，请取代此段落文字。此段落文字为范例文字内"
+"容，请务必取代。范例文字，请取代此段落文字。此段落文字为范例文字内容，请务必"
+"取代。范例文字，请取代此段落文字。此段落文字为范例文字内容，请务必取代。"
+
+#: templates/layout/sidebar_notice.html:46
+#: templates/layout/sidebar_notice.html:76
 msgid "Normal notice"
 msgstr "一般通知"
 
@@ -474,12 +493,8 @@ msgstr "登录"
 msgid "Lost password?"
 msgstr "忘记密码？"
 
-#: templates/search/order_search.html:6
+#: templates/search/order_search.html:6 templates/search/order_search.html:15
 msgid "Search results"
-msgstr "搜索结果"
-
-#: templates/search/order_search.html:15
-msgid "Search result"
 msgstr "搜索结果"
 
 #: templates/search/order_search.html:17
@@ -507,6 +522,3 @@ msgstr "没有找到结果。"
 #: templates/search/order_search.html:78
 msgid "<p class=\"lead\">You can search for order title, body, or orderer.</p>"
 msgstr "<p class=\"lead\">您可以搜索订单标题，内容，或者下单人。</p>"
-
-#~ msgid "Keywords"
-#~ msgstr "搜索关键词"

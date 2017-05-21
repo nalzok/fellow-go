@@ -10,13 +10,13 @@
 
     <div class="page-header">
         <div class="row">
-            <div class="col-md-8 col-md-offset-1">
+            <div class="col-xs-10 col-xs-offset-1 col-md-8 col-md-offset-1">
                 <h1 class="page-title">
-                    {% trans "Search result" %}
+                    {% trans "Search results" %}
                 </h1>
                 <p class="lead page-description">{% trans "Search for orders" %}</p>
             </div>
-            <div class="col-md-2">
+            <div class="col-xs-10 col-xs-offset-1 col-md-2 col-md-offset-0">
                 <a role="button" id="list-page-btn-0"
                    class="btn btn-primary btn-lg list-page-btn"
                    tabindex="0" data-container="body" data-toggle="popover"
@@ -32,13 +32,18 @@
 
 {% block main %}
 
-    <form method="get" action="">
-        {{ form|crispy }}
+    <div class="row">
+        <div class="col-xs-10 col-xs-offset-1 col-md-12 col-md-offset-0">
 
-        <button type="submit" class="btn btn-primary btn-block search-btn">
-            {% trans "Search" %}
-        </button>
-    </form>
+            <form method="get" action="">
+                {{ form|crispy }}
+
+                <button type="submit" class="btn btn-primary btn-block search-btn">
+                    {% trans "Search" %}
+                </button>
+            </form>
+        </div>
+    </div>
 
     <hr>
 
