@@ -1,3 +1,5 @@
+**/whoosh_index
+
 # Text backup files
 *.bak
 
