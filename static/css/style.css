@@ -5,6 +5,8 @@
 body {
     padding-top: 20px;
     padding-bottom: 20px;
+    font-family: -apple-system, "Helvetica Neue", Arial, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "WenQuanYi Micro Hei", sans-serif;
+    -webkit-font-smoothing: antialiased;
 }
 
 .navbar {
@@ -33,10 +35,6 @@ article.main {
 }
 
 @media screen and (max-width: 767px) {
-  .jumbotron {
-    margin-top: 0;
-  }
-
   .jumbotron h1,
   .jumbotron .h1 {
     font-size: 54px;
