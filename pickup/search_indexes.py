@@ -4,6 +4,9 @@ from .models import Order
 
 
 class OrderIndex(indexes.SearchIndex, indexes.Indexable):
+    """
+    The search index for orders. This is required by Haystack.
+    """
     text = indexes.CharField(document=True, use_template=True)
     time_created = indexes.DateTimeField(model_attr='time_created')
     time_expire = indexes.DateTimeField(model_attr='time_expire')
