@@ -39,7 +39,8 @@ class AdminFellowCreationForm(forms.ModelForm):
 
 
 class AdminFellowChangeForm(forms.ModelForm):
-    """A form for updating users. Includes all the fields on
+    """
+    A form for updating users. Includes all the fields on
     the user, but replaces the password field with admin's
     password hash display field.
     """
