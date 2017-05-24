@@ -11,7 +11,10 @@ from django.utils.translation import (
 
 
 class FellowManager(BaseUserManager):
-
+    """
+    Manage for Fellow.  This sets email to '<stu_id>@ecnu.cn', if one
+    isn't specified.
+    """
     def create_user(self, stu_id, first_name, last_name, tel, pay_method,
                     password=None, **extra_fields):
 
@@ -64,7 +67,10 @@ class FellowManager(BaseUserManager):
 
 
 class Fellow(AbstractBaseUser, PermissionsMixin):
-
+    """
+    The model for Fellow.  This replaces the default User object, in order
+    to make the fields first_name and last_name mandatory.
+    """
     stu_id = models.CharField(
         _('student ID'),
         max_length=255,
@@ -174,19 +180,28 @@ class Fellow(AbstractBaseUser, PermissionsMixin):
         """
         Return the first_name plus the last_name, with a space in between.
         """
-        contains_chinese = re.findall(r'[\u4e00-\u9fff]+',
-                                      self.first_name + self.last_name)
+        # Check whether first_name and last_name contain Chinese characters.
+        contains_chinese = re.findall(
+            r'[\u4e00-\u9fff]+',
+            self.first_name + self.last_name
+        )
         full_name = ('%s%s' if contains_chinese else '%s %s') % (
-        self.first_name, self.last_name)
+            self.first_name,
+            self.last_name
+        )
         return full_name.strip()
 
     def get_short_name(self):
-        """Return the short name for the user."""
+        """
+        Return the short name for the user.
+        """
         return self.get_full_name()
 
     @staticmethod
     def forge_fellows(count=1):
-
+        """
+        Create random fellow objects for testing purposes.
+        """
         from random import seed, choice
         from uuid import uuid4
 
@@ -210,7 +225,9 @@ class Fellow(AbstractBaseUser, PermissionsMixin):
 
 
 class Order(models.Model):
-
+    """
+    The model for Order.  A fellow (i.e. user) can place and take orders.
+    """
     title = models.CharField(
         _('order title'),
         max_length=255,
@@ -282,9 +299,15 @@ class Order(models.Model):
         return _('order') + ' ' + self.title
 
     def is_expired(self):
+        """
+        Whether the order object is expired now.
+        """
         return self.time_expire <= timezone.now()
 
     def is_available(self):
+        """
+        Whether a fellow would be able to take it.
+        """
         return not self.is_expired() and not self.is_taken
 
     def get_absolute_url(self):
@@ -293,8 +316,10 @@ class Order(models.Model):
 
     @staticmethod
     def forge_orders(count=1):
-
-        from random import seed, random, randrange, choice
+        """
+        Create random order objects for testing purposes.
+        """
+        from random import seed, random, randint, choice
 
         from django.db import IntegrityError
         import forgery_py
@@ -307,7 +332,7 @@ class Order(models.Model):
                     body=forgery_py.lorem_ipsum.sentences(quantity=5),
                     bounty_size=max(30 * random() - 20, 0),
                     maker=Fellow.objects.get(
-                        pk=randrange(1, Fellow.objects.count())
+                        pk=randint(1, Fellow.objects.count())
                     ),
                     address=forgery_py.address.street_name(),
                     time_expire=timezone.make_aware(

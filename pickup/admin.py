@@ -2,8 +2,8 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
 from django.utils.translation import ugettext_lazy as _
 
-from .models import Fellow, Order
-from .forms import AdminFellowCreationForm, AdminFellowChangeForm
+from pickup.models import Fellow, Order
+from pickup.forms import AdminFellowCreationForm, AdminFellowChangeForm
 
 
 class FellowAdmin(BaseUserAdmin):
@@ -58,7 +58,9 @@ class FellowAdmin(BaseUserAdmin):
     ordering = ('stu_id',)
     filter_horizontal = ()
 
+
 admin.site.register(Fellow, FellowAdmin)
+
 
 class OrderAdmin(admin.ModelAdmin):
     """
@@ -68,7 +70,9 @@ class OrderAdmin(admin.ModelAdmin):
         'title', 'time_created', 'time_expire', 'is_taken', 'is_completed'
     )
 
+
 admin.site.register(Order, OrderAdmin)
+
 
 admin.site.site_header = _('Fellow Go Background')
 admin.site.site_title = _('Fellow Go Background')

@@ -6,10 +6,14 @@ from django.utils.translation import ugettext_lazy as _
 from datetimewidget.widgets import DateTimeWidget
 import django_filters
 
-from .models import Order
+from pickup.models import Order
 
 
 class CustomBooleanWidget(django_filters.widgets.BooleanWidget):
+    """
+    A widget mimicing NullBooleanSelect.  Implemented to have 'Any'
+    instead of 'Unknown' as the label of the third choice.
+    """
     def __init__(self, attrs=None):
         super(CustomBooleanWidget, self).__init__(attrs)
         self.choices = (('', _('Any')),
@@ -19,6 +23,10 @@ class CustomBooleanWidget(django_filters.widgets.BooleanWidget):
 
 
 class OrderFilter(django_filters.FilterSet):
+    """
+    The filter for Order.  This is used by OrderFilterView, which
+    takes the place of a list view.
+    """
     availability = django_filters.BooleanFilter(
         label=_('Availability'),
         widget=CustomBooleanWidget(),

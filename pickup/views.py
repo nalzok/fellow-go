@@ -9,18 +9,23 @@ from django.views.generic.detail import DetailView
 from django_filters.views import FilterView
 from haystack.generic_views import SearchView
 
-from .models import Order
-from .filters import OrderFilter
-from .forms import OrderSearchForm
+from pickup.models import Order
+from pickup.filters import OrderFilter
+from pickup.forms import OrderSearchForm
 
 
 class HomePageView(TemplateView):
-
+    """
+    The model view for the homepage
+    """
     template_name = 'index.html'
 
 
 class OrderFilterView(LoginRequiredMixin, FilterView):
-
+    """
+    A model view for filter order objects.  This takes the place of a
+    list view.
+    """
     filterset_class = OrderFilter
     paginate_by = 15
 
@@ -38,7 +43,9 @@ class OrderFilterView(LoginRequiredMixin, FilterView):
 
 
 class OrderDetailView(LoginRequiredMixin, DetailView):
-
+    """
+    A model view for displaying information about a specific order object.
+    """
     model = Order
 
     def get_context_data(self, **kwargs):
@@ -48,11 +55,17 @@ class OrderDetailView(LoginRequiredMixin, DetailView):
 
 
 class OrderSearchView(LoginRequiredMixin, SearchView):
+    """
+    A model view for searching for order objects. Searching is based on
+    keywords, and can be further filtered by creation date, expiration
+    date, and availability.
+    """
     template_name = 'search/order_search.html'
     form_class = OrderSearchForm
 
     def get_context_data(self, *args, **kwargs):
-        # https://djangosnippets.org/snippets/1592/
+        # Preserving GET arguments with pagination
+        # Taken from https://djangosnippets.org/snippets/1592/
         context = super(OrderSearchView, self).get_context_data(*args,
                                                                 **kwargs)
 
@@ -67,6 +80,9 @@ class OrderSearchView(LoginRequiredMixin, SearchView):
 
 
 def common_request_parameters(request):
+    """
+    Expose extra context variables to all templates.
+    """
     form = OrderSearchForm()
     form.helper.form_class = 'navbar-form navbar-right'
     form.helper.form_method = 'get'

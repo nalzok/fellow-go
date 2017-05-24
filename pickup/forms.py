@@ -6,24 +6,29 @@ from crispy_forms.helper import FormHelper
 from datetimewidget.widgets import DateTimeWidget
 from haystack.forms import SearchForm
 
-from .models import Fellow
+from pickup.models import Fellow
 
 
 class AdminFellowCreationForm(forms.ModelForm):
     """
-    A form for creating new users. Includes all the required
+    A form for creating new users.  Includes all the required
     fields, plus a repeated password.
     """
     password1 = forms.CharField(
         label=_('Password'),
-        widget=forms.PasswordInput)
-    password2 = forms.CharField(label=_('Confirm Password'), widget=forms.PasswordInput)
+        widget=forms.PasswordInput
+    )
+    password2 = forms.CharField(
+        label=_('Confirm Password'),
+        widget=forms.PasswordInput
+    )
 
     class Meta:
         model = Fellow
         fields = (
-        'stu_id', 'first_name', 'last_name', 'tel', 'pay_method', 'nickname',
-        'email', 'is_active', 'is_staff', 'is_superuser')
+            'stu_id', 'first_name', 'last_name', 'tel', 'pay_method',
+            'nickname', 'email', 'is_active', 'is_staff', 'is_superuser'
+        )
 
     def clean_password2(self):
         # Check that the two password entries match
@@ -53,8 +58,10 @@ class AdminFellowChangeForm(forms.ModelForm):
     class Meta:
         model = Fellow
         fields = (
-        'stu_id', 'first_name', 'last_name', 'tel', 'pay_method', 'nickname',
-        'email', 'password', 'is_active', 'is_staff', 'is_superuser')
+            'stu_id', 'first_name', 'last_name', 'tel', 'pay_method',
+            'nickname', 'email', 'password', 'is_active', 'is_staff',
+            'is_superuser'
+        )
 
     def clean_password(self):
         # Regardless of what the user provides, return the initial value.
@@ -64,6 +71,10 @@ class AdminFellowChangeForm(forms.ModelForm):
 
 
 class OrderSearchForm(SearchForm):
+    """
+    A form for searching for orders.  Including one CharField,  four
+    DateTime fields, and two ChoiceFields.
+    """
     q = forms.CharField(required=False, label=_('Search keywords'),
                         widget=forms.TextInput(attrs={'type': 'search'}))
 
@@ -147,6 +158,7 @@ class OrderSearchForm(SearchForm):
         self.helper = FormHelper()
 
     def search(self):
+        # Perform filtering on the search result.
         sqs = super(OrderSearchForm, self).search()
 
         if not self.is_valid():

@@ -1,6 +1,6 @@
 from haystack import indexes
 
-from .models import Order
+from pickup.models import Order
 
 
 class OrderIndex(indexes.SearchIndex, indexes.Indexable):

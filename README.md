@@ -1,8 +1,10 @@
 [![Build Status](https://travis-ci.org/sunqingyao/fellow-go.svg?branch=master)](https://travis-ci.org/sunqingyao/fellow-go)
+[![codecov](https://codecov.io/gh/sunqingyao/fellow-go/branch/master/graph/badge.svg)](https://codecov.io/gh/sunqingyao/fellow-go)
 
 # Here is the home of Fellow Go! Project
 
 Fellow Go! Project aims to provide a platform, where college students can pick up stuff like takeout, toothpaste and shampoo for each other.
+
 
 ### Workflow
 
@@ -20,7 +22,7 @@ Fellow Go! Project aims to provide a platform, where college students can pick u
 3. Since John is near the Diao's, he would receive a push notification from our platform.
 4. John, being interested, takes Mary's order, and they start discussing the details via IM. The platform would then provide relevant information like items' average transaction prices, when possible.
 5. Mary stores money to the platform with the amount they've agreed upon. She can also use her balance, if she has any.
-6. John buys a Diao's fried rice, and brings it to Mary,
+6. John buys a Diao's fried rice, and brings it to Mary.
 7. The system gives the money to John (i.e. paying him directly or adding the amount to his balance, depending on John's preference), after Mary confirms she has received the good.
 
 
@@ -40,6 +42,30 @@ Fellow Go! Project aims to provide a platform, where college students can pick u
 + Instant messaging between users
 + Integrated AI
 + RESTful/GraphQL API
+
+
+### Caveats
+
++ Since Heroku doesn't grant me write permission to the file system, I cannot create the index file needed by Whoosh. As a result, I changed the search engine backend to `SimpleEngine` to enable basic searching functionality. Please note that _doing so disables advanced searching functionalities such as result filtering._
+
+To use Whoosh backend on your local machine, find the following variable in `settings.py`
+
+    HAYSTACK_CONNECTIONS = {
+        'default': {
+            'ENGINE': 'haystack.backends.simple_backend.SimpleEngine',
+        },
+    }
+    
+change it to
+
+    HAYSTACK_CONNECTIONS = {
+        'default': {
+            'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+            'PATH': os.path.join(os.path.dirname(__file__), 'whoosh_index'),
+        },
+    }
+    
+and run `python manage.py update_index`.
 
 
 ### Contact
