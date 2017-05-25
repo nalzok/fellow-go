@@ -32,8 +32,8 @@ class AdminFellowCreationForm(forms.ModelForm):
 
     def clean_password2(self):
         # Check that the two password entries match
-        password1 = self.cleaned_data.get("password1")
-        password2 = self.cleaned_data.get("password2")
+        password1 = self.cleaned_data.get('password1')
+        password2 = self.cleaned_data.get('password2')
         if password1 and password2 and password1 != password2:
             raise forms.ValidationError(_("Passwords don't match"))
         return password2
@@ -67,7 +67,7 @@ class AdminFellowChangeForm(forms.ModelForm):
         # Regardless of what the user provides, return the initial value.
         # This is done here, rather than on the field, because the
         # field does not have access to the initial value
-        return self.initial["password"]
+        return self.initial.get('password')
 
 
 class OrderSearchForm(SearchForm):
@@ -134,7 +134,7 @@ class OrderSearchForm(SearchForm):
     )
 
     BOOLEAN_OPTIONS = [
-        ('any', _('Any')),
+        ('Any', _('Any')),
         ('True', _('Yes')),
         ('False', _('No'))
     ]

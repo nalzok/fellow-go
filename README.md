@@ -1,5 +1,5 @@
 [![Build Status](https://travis-ci.org/sunqingyao/fellow-go.svg?branch=master)](https://travis-ci.org/sunqingyao/fellow-go)
-[![codecov](https://codecov.io/gh/sunqingyao/fellow-go/branch/master/graph/badge.svg)](https://codecov.io/gh/sunqingyao/fellow-go)
+[![Coverage Status](https://coveralls.io/repos/github/sunqingyao/fellow-go/badge.svg?branch=master)](https://coveralls.io/github/sunqingyao/fellow-go?branch=master)
 
 # Here is the home of Fellow Go! Project
 

@@ -32,7 +32,7 @@ class FellowManager(BaseUserManager):
         extra_fields.setdefault('is_staff', False)
         extra_fields.setdefault('is_superuser', False)
 
-        email = extra_fields.get('email') or (stu_id + '@ecnu.cn')
+        email = extra_fields.get('email') or "".join([stu_id, '@ecnu.cn'])
         extra_fields['email'] = self.normalize_email(email)
 
         fellow = self.model(
@@ -174,7 +174,7 @@ class Fellow(AbstractBaseUser, PermissionsMixin):
         verbose_name_plural = _('fellows')
 
     def __str__(self):
-        return _('fellow') + ' ' + self.stu_id
+        return "".join([str(_('fellow')), ' ', self.stu_id])
 
     def get_full_name(self):
         """
@@ -183,7 +183,7 @@ class Fellow(AbstractBaseUser, PermissionsMixin):
         # Check whether first_name and last_name contain Chinese characters.
         contains_chinese = re.findall(
             r'[\u4e00-\u9fff]+',
-            self.first_name + self.last_name
+            "".join([self.first_name, self.last_name])
         )
         full_name = ('%s%s' if contains_chinese else '%s %s') % (
             self.first_name,
@@ -296,7 +296,7 @@ class Order(models.Model):
         verbose_name_plural = _('orders')
 
     def __str__(self):
-        return _('order') + ' ' + self.title
+        return "".join([str(_('order')), ' ', self.title])
 
     def is_expired(self):
         """

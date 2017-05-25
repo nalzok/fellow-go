@@ -48,9 +48,10 @@
     <hr>
 
     {% if query %}
-        <h3>{% blocktrans trimmed %}
+        <h3>
+            {% blocktrans trimmed %}
             {{ count }} result(s)
-        {% endblocktrans %}
+            {% endblocktrans %}
         </h3>
 
         {% for result in object_list %}
@@ -66,12 +67,12 @@
                     {% filter truncatewords_html:20 %}
                         {% highlight result.object.body with query html_tag 'mark' %}
                     {% endfilter %}
-                <p class="text-right">
-                    {% blocktrans trimmed with placer=result.object.maker.get_full_name time_created=result.object.time_created %}
-                        Placed by user <i>{{ placer }}</i> at
-                        <i>{{ time_created }}</i>
-                    {% endblocktrans %}
-                </p>
+                    <p class="text-right">
+                        {% blocktrans trimmed with placer=result.object.maker.get_full_name time_created=result.object.time_created %}
+                            Placed by user <i>{{ placer }}</i> at
+                            <i>{{ time_created }}</i>
+                        {% endblocktrans %}
+                    </p>
                 </p>
             </div>
         {% empty %}
@@ -81,8 +82,9 @@
         {% include 'layout/pagination.html' %}
     {% else %}
         {% blocktrans trimmed %}
-            <p class="lead">You can search for order title, body, or
-                orderer.</p>
+            <p class="lead">
+                You can search for order title, body, or orderer.
+            </p>
         {% endblocktrans %}
     {% endif %}
 

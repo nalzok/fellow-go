@@ -1,5 +1,5 @@
 from crispy_forms.bootstrap import InlineField
-from crispy_forms.layout import Layout, Submit
+from crispy_forms.layout import Layout
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.core.urlresolvers import reverse
 from django.utils import timezone
